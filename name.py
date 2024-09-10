@@ -11,3 +11,6 @@ print("Now trying the other way")
 print("So many print statements *sparkle sparkle*")
 
 print("I think this is second nature at this point. I'm even gaining sarcasm! ")
+
+for letter in "sarcasm":
+    print(letter)
