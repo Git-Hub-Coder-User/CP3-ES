@@ -5,3 +5,5 @@ print("GitHubIsHardToWorkWith")
 print("Never ever ever ever have changes in multiple locations")
 
 print("Why is life hard? ")
+
+print("Now trying the other way")
