@@ -13,4 +13,6 @@ print("So many print statements *sparkle sparkle*")
 print("I think this is second nature at this point. I'm even gaining sarcasm! ")
 
 for letter in "sarcasm":
-    print(letter)
+    print(f"Give me a {letter}!")
+
+print("What does that spell? ")
