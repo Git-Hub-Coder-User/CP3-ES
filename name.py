@@ -1,6 +1,6 @@
-print("Hello world. I am your furture robotic overlord. ")
+print("Hello world. I am your future robotic overlord. ")
 
-print("GitHubIsHardToWorkWith")
+print("Git Hub Is Hard To Work With")
 
 print("Never ever ever ever have changes in multiple locations")
 
