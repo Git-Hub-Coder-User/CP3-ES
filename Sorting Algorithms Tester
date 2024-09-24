@@ -34,16 +34,33 @@ def bucket_sort(listed):
     listed = list1.extend(list2)
 
     print("The list is now sorted. ")
+    return listed
 
 def pigeon_sort(listed):
     pass
 
 def bubble_sort(listed):
-    pass
+    print("Bubble sort works by continously swapping elements so the smaller one goes first. ")
+    index = 0
+
+    while True:
+        if listed[index] > listed[index + 1]:
+            temp = listed[index]
+            listed[index] = listed[index + 1]
+            listed[index + 1] = listed[temp]
+            print(f"{listed[index]} is greater than {listed[index + 1]}, so they swap")
+            swaps += 1
+            index += 1
+        if index == len(listed) and swaps !=0:
+            index = 0
+        if index == len(listed) + 1 and swaps == 0:
+            return listed
+
 
 import random
 
 listed = []
+swaps = 0
 
 inputed = input("Do you want to A) Insert your own numbers between one and ten or B) Have a random list generated. ").strip().lower()
 
