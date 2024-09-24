@@ -3,41 +3,69 @@ This program will sort numbers with different algorithms and tell you how long i
 Users needs to be able to input their own array of numbers or generate a random list, view the step by step process, choose which algorithm is used, see supported array, and see number of comparisons/swaps
 """
 
-def selection_sort([listed]):
+def selection_sort(listed):
     pass
 
-def insertion_sort([listed]):
+def insertion_sort(listed):
     pass
 
-def bucket_sort([listed]):
+def bucket_sort(listed):
+    list1 = [] #Less than five
+    list2 = [] #Greater than or equal to five
+
+    print("Bubble sort starts by dividing the elements into lists. In this case we'll use two")
+
+    for value in listed:
+        if value < 5:
+            list1.append(value)
+            print(f"Since {value} is less than five, it goes in the first list. ")
+        elif value >= 5:
+            list2.append(value)
+            print(f"Since this value is equal to or greater than five, it goes in the second list. ")
+    
+    print("Then we sort the lists using insertion sort. ")
+
+    print("The less than five list is sorted first. ")
+    list1 = insertion_sort(list1)
+    print("The greater than or equal to five list is sorted next. ")
+    list2 =insertion_sort(list2)
+
+    print("Then the two sorted lists are put together. ")
+    listed = list1.extend(list2)
+
+    print("The list is now sorted. ")
+
+def pigeon_sort(listed):
     pass
 
-def pigeon_sort([listed]):
-    pass
-
-def bubble_sort([listed]):
+def bubble_sort(listed):
     pass
 
 import random
 
 listed = []
 
-inputed = input("Do you want to A) Insert your own numbers or B) Have a random list generated. ").strip().lower()
+inputed = input("Do you want to A) Insert your own numbers between one and ten or B) Have a random list generated. ").strip().lower()
 
 while True: 
     if inputed == "a":
         print("Input your own number or enter 'end' to stop. ")
         while True:
             inputed = input("")
-            if type(inputed) == int:
-                listed.append()
-            elif type(inputed).strip().lower() == "n":
-                break
-            else: 
-                print("Invalid option. ")
+            if inputed <= 10 and inputed > 0: 
+                if type(inputed) == int:
+                    listed.append()
+                elif type(inputed).strip().lower() == "n":
+                    break
+                else: 
+                    print("Invalid option. ")
+            else:
+                print("Invalid option")
+
     elif inputed == "b":
         x = random.randrange(3,5)
         for i in range(x):
             listed.append(random.randrange(1,10))
+
     else:
         print("Invalid input. ")
