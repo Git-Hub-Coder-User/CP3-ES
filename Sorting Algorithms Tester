@@ -3,17 +3,41 @@ This program will sort numbers with different algorithms and tell you how long i
 Users needs to be able to input their own array of numbers or generate a random list, view the step by step process, choose which algorithm is used, see supported array, and see number of comparisons/swaps
 """
 
-def selection_sort():
+def selection_sort([listed]):
     pass
 
-def insertion_sort():
+def insertion_sort([listed]):
     pass
 
-def bucket_sort():
+def bucket_sort([listed]):
     pass
 
-def pigeon_sort():
+def pigeon_sort([listed]):
     pass
 
-def bubble_sort():
+def bubble_sort([listed]):
     pass
+
+import random
+
+listed = []
+
+inputed = input("Do you want to A) Insert your own numbers or B) Have a random list generated. ").strip().lower()
+
+while True: 
+    if inputed == "a":
+        print("Input your own number or enter 'end' to stop. ")
+        while True:
+            inputed = input("")
+            if type(inputed) == int:
+                listed.append()
+            elif type(inputed).strip().lower() == "n":
+                break
+            else: 
+                print("Invalid option. ")
+    elif inputed == "b":
+        x = random.randrange(3,5)
+        for i in range(x):
+            listed.append(random.randrange(1,10))
+    else:
+        print("Invalid input. ")
