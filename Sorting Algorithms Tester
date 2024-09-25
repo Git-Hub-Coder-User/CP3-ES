@@ -42,6 +42,7 @@ def pigeon_sort(listed):
 def bubble_sort(listed):
     print("Bubble sort works by continously swapping elements so the smaller one goes first. ")
     index = 0
+    print("We start at the beginning of the list. ")
 
     while True:
         if listed[index] > listed[index + 1]:
@@ -93,5 +94,6 @@ def get_list():
         else:
             print("Invalid input. ")
 
+print("Running! ")
 get_list()
 bubble_sort(listed)
