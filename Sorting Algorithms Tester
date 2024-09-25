@@ -78,6 +78,7 @@ def get_list():
                 if inputed <= 10 and inputed > 0: 
                     listed.append(inputed)
                 elif inputed == 0:
+                    print("Your list is" + listed)
                     return listed
                 else:
                     print("Invalid option")
