@@ -87,6 +87,8 @@ def get_list():
             x = random.randrange(3,5)
             for i in range(x):
                 listed.append(random.randrange(1,10))
+            print("Your list is" + str(listed))
+            return listed
 
         else:
             print("Invalid input. ")
