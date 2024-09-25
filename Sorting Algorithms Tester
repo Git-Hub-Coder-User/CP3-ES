@@ -62,29 +62,32 @@ import random
 listed = []
 swaps = 0
 
-inputed = input("Do you want to A) Insert your own numbers between one and ten or B) Have a random list generated. ").strip().lower()
 
-while True: 
-    if inputed == "a":
-        # print("Input your own number or enter 'end' to stop. ")
-        while True:
-            inputed = input("Input your own number or enter 'end' to stop. ")
-            if inputed <= 10 and inputed > 0: 
-                if type(inputed) == int:
-                    listed.append()
-                elif type(inputed).strip().lower() == "n":
-                    break
-                else: 
-                    print("Invalid option. ")
-            else:
-                print("Invalid option")
 
-    elif inputed == "b":
-        x = random.randrange(3,5)
-        for i in range(x):
-            listed.append(random.randrange(1,10))
+def get_list(): 
 
-    else:
-        print("Invalid input. ")
+    inputed = input("Do you want to A) Insert your own numbers between one and ten or B) Have a random list generated. ")
+    inputed = inputed.strip().lower()
+
+    while True: 
+        if inputed == "a":
+            # print("Input your own number or enter 'end' to stop. ")
+            inputed = 4
+            while True:
+                inputed = int(input("Input your own number or enter '0' to stop. "))
+                if inputed <= 10 and inputed > 0: 
+                    listed.append(inputed)
+                elif inputed == 0:
+                    return listed
+                else:
+                    print("Invalid option")
+
+        elif inputed == "b":
+            x = random.randrange(3,5)
+            for i in range(x):
+                listed.append(random.randrange(1,10))
+
+        else:
+            print("Invalid input. ")
 
 bubble_sort(listed)
