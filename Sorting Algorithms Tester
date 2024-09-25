@@ -90,4 +90,5 @@ def get_list():
         else:
             print("Invalid input. ")
 
+get_list()
 bubble_sort(listed)
