@@ -66,9 +66,9 @@ inputed = input("Do you want to A) Insert your own numbers between one and ten o
 
 while True: 
     if inputed == "a":
-        print("Input your own number or enter 'end' to stop. ")
+        # print("Input your own number or enter 'end' to stop. ")
         while True:
-            inputed = input("")
+            inputed = input("Input your own number or enter 'end' to stop. ")
             if inputed <= 10 and inputed > 0: 
                 if type(inputed) == int:
                     listed.append()
@@ -86,3 +86,5 @@ while True:
 
     else:
         print("Invalid input. ")
+
+bubble_sort(listed)
