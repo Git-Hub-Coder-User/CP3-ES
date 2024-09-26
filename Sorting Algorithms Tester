@@ -51,10 +51,13 @@ def bubble_sort(listed):
             listed[index + 1] = listed[temp]
             print(f"{listed[index]} is greater than {listed[index + 1]}, so they swap")
             swaps += 1
+            total_swaps += 1
             index += 1
-        if index == len(listed) and swaps !=0:
+        if index == len(listed) +1 and swaps !=0:
             index = 0
+            swaps = 0
         if index == len(listed) + 1 and swaps == 0:
+            print("The list is now sorted. ")
             return listed
 
 
@@ -62,6 +65,7 @@ import random
 
 listed = []
 swaps = 0
+total_swaps = 0
 
 
 
