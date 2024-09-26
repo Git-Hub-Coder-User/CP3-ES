@@ -59,6 +59,7 @@ def bubble_sort(listed):
             index += 1
         elif listed[index] <= listed[index +1]:
             print(f"Since {listed[index]} is not bigger than {listed[index]}, the both stay where they are. ")
+            index += 1
         elif index == len(listed) +1 and swaps !=0:
             print("Made it to resetting the index! ")
             index = 0
