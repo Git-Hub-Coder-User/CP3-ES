@@ -47,7 +47,7 @@ def bubble_sort(listed):
     print("We start at the beginning of the list. ")
 
     while True:
-        print("Made it into the first loop! ")
+        # print("Made it into the first loop! ")
         if listed[index] > listed[index + 1]:
             print("Made it past comparison! ")
             temp = listed[index]
@@ -57,13 +57,18 @@ def bubble_sort(listed):
             swaps += 1
             total_swaps += 1
             index += 1
-        if index == len(listed) +1 and swaps !=0:
+        elif listed[index] <= listed[index +1]:
+            print(f"Since {listed[index]} is not bigger than {listed[index]}, the both stay where they are. ")
+        elif index == len(listed) +1 and swaps !=0:
             print("Made it to resetting the index! ")
             index = 0
             swaps = 0
-        if index == len(listed) + 1 and swaps == 0:
+        elif index == len(listed) + 1 and swaps == 0:
             print("The list is now sorted. ")
             return listed
+        else:
+            print("An error occured. ")
+            break
 
 
 import random
