@@ -40,20 +40,25 @@ def pigeon_sort(listed):
     pass
 
 def bubble_sort(listed):
+    global swaps
+    global total_swaps
     print("Bubble sort works by continously swapping elements so the smaller one goes first. ")
     index = 0
     print("We start at the beginning of the list. ")
 
     while True:
+        print("Made it into the first loop! ")
         if listed[index] > listed[index + 1]:
+            print("Made it past comparison! ")
             temp = listed[index]
             listed[index] = listed[index + 1]
-            listed[index + 1] = listed[temp]
+            listed[index + 1] = temp
             print(f"{listed[index]} is greater than {listed[index + 1]}, so they swap")
             swaps += 1
             total_swaps += 1
             index += 1
         if index == len(listed) +1 and swaps !=0:
+            print("Made it to resetting the index! ")
             index = 0
             swaps = 0
         if index == len(listed) + 1 and swaps == 0:
