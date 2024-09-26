@@ -49,7 +49,6 @@ def bubble_sort(listed):
     while True:
         # print("Made it into the first loop! ")
         
-        print(f"The list is {listed}")
         print(str(index) + " is the index")
         swaps = 0
 
@@ -70,14 +69,16 @@ def bubble_sort(listed):
             break
         
         
-        if index == len(listed) - 1:
-            print("This is the end of the list, so we go back. ")
-            index = 0
-            swaps = 0
-        elif index == len(listed) - 1 and swaps == 0:
+        
+        if index == len(listed) - 1 and swaps == 0:
             print("The list is now sorted. ")
             return listed
+        elif index == len(listed) - 1:
+                print("This is the end of the list, so we go back. ")
+                index = 0
+                swaps = 0
         
+        print(f"The list is {listed}")
         non_existant = input("This is to pause the freaking thing")
 
 
