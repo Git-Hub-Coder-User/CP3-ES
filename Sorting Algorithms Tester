@@ -54,10 +54,10 @@ def bubble_sort(listed):
 
         if listed[index] > listed[index + 1]:
             # print("Made it past comparison! ")
+            print(f"{listed[index]} is greater than {listed[index + 1]}, so they swap")
             temp = listed[index]
             listed[index] = listed[index + 1]
             listed[index + 1] = temp
-            print(f"{listed[index]} is greater than {listed[index + 1]}, so they swap")
             swaps += 1
             total_swaps += 1
             index += 1
