@@ -48,8 +48,12 @@ def bubble_sort(listed):
 
     while True:
         # print("Made it into the first loop! ")
+        
+        print(f"The list is {listed}")
+        print(str(index) + " is the index")
+
         if listed[index] > listed[index + 1]:
-            print("Made it past comparison! ")
+            # print("Made it past comparison! ")
             temp = listed[index]
             listed[index] = listed[index + 1]
             listed[index + 1] = temp
@@ -60,11 +64,12 @@ def bubble_sort(listed):
         elif listed[index] <= listed[index +1]:
             print(f"Since {listed[index]} is not bigger than {listed[index]}, the both stay where they are. ")
             index += 1
-        elif index == len(listed) +1 and swaps !=0:
+        elif index == len(listed) - 2 and swaps !=0:
             print("Made it to resetting the index! ")
+            print("This is the end of the list, so we go back. ")
             index = 0
             swaps = 0
-        elif index == len(listed) + 1 and swaps == 0:
+        elif index == len(listed) - 2 and swaps == 0:
             print("The list is now sorted. ")
             return listed
         else:
@@ -100,7 +105,7 @@ def get_list():
                     print("Invalid option")
 
         elif inputed == "b":
-            x = random.randrange(3,5)
+            x = random.randrange(3,9)
             for i in range(x):
                 listed.append(random.randrange(1,10))
             print("Your list is" + str(listed))
