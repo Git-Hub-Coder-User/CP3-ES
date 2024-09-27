@@ -29,7 +29,7 @@ def insertion_sort(listed):
         iterations += 1
 
         if listed == []:
-            return listed
+            return returned
             
 
 
@@ -52,10 +52,11 @@ def bucket_sort(listed):
     print("The less than five list is sorted first. ")
     list1 = insertion_sort(list1)
     print("The greater than or equal to five list is sorted next. ")
-    list2 =insertion_sort(list2)
+    list2 = insertion_sort(list2)
 
     print("Then the two sorted lists are put together. ")
-    listed.extend(list1)
+    
+    listed = list1
     listed.extend(list2)
 
     print(f"The list is now sorted. The final list is {listed}")
