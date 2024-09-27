@@ -49,8 +49,7 @@ def bubble_sort(listed):
     while True:
         # print("Made it into the first loop! ")
         
-        print(str(index) + " is the index")
-        swaps = 0
+        # print(str(index) + " is the index")
 
         if listed[index] > listed[index + 1]:
             # print("Made it past comparison! ")
@@ -79,7 +78,7 @@ def bubble_sort(listed):
                 swaps = 0
         
         print(f"The list is {listed}")
-        non_existant = input("This is to pause the freaking thing")
+        # non_existant = input("This is to pause the freaking thing")
 
 
 import random
