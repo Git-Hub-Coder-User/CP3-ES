@@ -195,19 +195,19 @@ listed = get_list()
 while True:
     inputed = input("Pick a sorting method A) Selection sort B) Insertion sort C) Bucket sort D) Pigeon Sort E) Bubble sort")
     inputed = inputed.strip().lower()
-    if input == "a":
+    if inputed == "a":
         selection_sort(listed)
         break
-    elif input == "b":
+    elif inputed == "b":
         insertion_sort(listed)
         break
-    elif input == "c":
+    elif inputed == "c":
         bucket_sort(listed)
         break
-    elif input == "d":
+    elif inputed == "d":
         pigeon_sort(listed)
         break
-    elif input == "e":
+    elif inputed == "e":
         bubble_sort(listed)
         break
     else: 
