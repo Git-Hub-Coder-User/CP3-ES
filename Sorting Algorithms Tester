@@ -29,7 +29,6 @@ def insertion_sort(listed):
         iterations += 1
 
         if listed == []:
-            print("end condition tripped")
             return listed
             
 
