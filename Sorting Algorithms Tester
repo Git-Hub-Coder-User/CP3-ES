@@ -142,7 +142,6 @@ def get_list():
         else:
             print("Invalid input. ")
 
-print("Running! ")
 listed = get_list()
 bucket_sort(listed)
 
@@ -151,7 +150,20 @@ while True:
     inputed = input("Pick a sorting method A) Selection sort B) Insertion sort C) Bucket sort D) Pigeon Sort E) Bubble sort")
     inputed = inputed.strip().lower()
     if input == "a":
-        selection_sort()
+        selection_sort(listed)
+        break
     elif input == "b":
-        insertion_sort
+        insertion_sort(listed)
+        break
+    elif input == "c":
+        bucket_sort(listed)
+        break
+    elif input == "d":
+        pigeon_sort(listed)
+        break
+    elif input == "e"
+        bubble_sort(listed)
+        break
+    else: 
+        print("Invalid option. )
 """
