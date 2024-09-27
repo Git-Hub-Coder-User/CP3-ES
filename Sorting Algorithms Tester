@@ -7,26 +7,31 @@ def selection_sort(listed):
     pass
 
 def insertion_sort(listed):
-    length = len(listed)
+    print("Insertion sort works by finding the smallest number first and then putting it in its spot and then repeating that process with the next smallest and so on")
+    iterations = 0
     returned = []
-
-    print("Insertion sort works by finding the smallest number and putting it at the beginning and then repeating that process over and over. ")
-
-    for i in range(length):
-        temp = 11
+    while True:
+        print(f"The first unsorted item in the list is {listed[0]}, so we start by assuming that's the smallest")
+        temp = listed[0]
         for value in listed:
             if value < temp:
-                if temp == 11:
-                    print(f"{value} is the first number, so it's automatically considered the smallest for now. ")
-                else: 
-                    print(f"Since {value} is less than {temp}, it becomes the new smallest number")
-            else:
-                print(f"{value} wasn't the smallest, so we move onto the next one")
+                print(f"{value} is smaller than {temp} so we assume it's the smallest for now. Then we move onto the next item. ")
                 temp = value
-        print(f"Now we've made it all the way through the list and {temp} was the smallest so we move it forward. ")
+            else:
+                print(f"{value} is not smaller than {temp} so we move onto the next item. ")
+        print(f"We've gone all the way through the list and {temp} was the smallest so we put it in its spot. ")
         listed.pop(listed.index(temp))
-        listed.insert(i,temp)
-        print(f"The list is now {listed}")
+        returned.append(temp)
+        shown = returned.copy()
+        shown.extend(listed)
+        print(f"The list is now{shown}")
+
+        iterations += 1
+
+        if listed == []:
+            print("end condition tripped")
+            return listed
+            
 
 
 def bucket_sort(listed):
