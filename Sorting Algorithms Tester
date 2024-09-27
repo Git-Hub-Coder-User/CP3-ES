@@ -6,7 +6,7 @@ Users needs to be able to input their own array of numbers or generate a random 
 def selection_sort(listed):
     pass
 
-def insertion_sort(listed):
+def insertion_sort(listed, bs = False):
     print("Insertion sort works by finding the smallest number first and then putting it in its spot and then repeating that process with the next smallest and so on")
     iterations = 0
     returned = []
@@ -29,7 +29,11 @@ def insertion_sort(listed):
         iterations += 1
 
         if listed == []:
-            return returned
+            print(f"The insertion sort took {iterations}s to sort the list. ")
+            if bs == True:
+                return (returned, iterations)
+            else:
+                return returned
             
 
 
@@ -50,16 +54,20 @@ def bucket_sort(listed):
     print(f"Then we sort the lists using insertion sort. ")
 
     print("The less than five list is sorted first. ")
-    list1 = insertion_sort(list1)
+    list1 = insertion_sort(list1, True)
+    iterations = list1[1]
+    list1 = list1[0]
     print("The greater than or equal to five list is sorted next. ")
-    list2 = insertion_sort(list2)
+    list2 = insertion_sort(list2, True)
+    iterations += list2[1]
+    list2 = list2[0]
 
     print("Then the two sorted lists are put together. ")
     
     listed = list1
     listed.extend(list2)
 
-    print(f"The list is now sorted. The final list is {listed}")
+    print(f"The list is now sorted. The final list is {listed}. The sort took {iterations} iterations to complete. ")
     return listed
 
 def pigeon_sort(listed):
@@ -119,17 +127,13 @@ def bubble_sort(listed):
                 index = 0
                 swaps = 0
         
-        print(f"The list is {listed}")
+        print(f"The list is {listed}. It took {total_swaps} to complete. ")
         # non_existant = input("This is to pause the freaking thing")
 
 
 import random
 
 listed = []
-swaps = 0
-total_swaps = 0
-
-
 
 def get_list(): 
     while True: 
@@ -159,7 +163,7 @@ def get_list():
             print("Invalid input. ")
 
 listed = get_list()
-pigeon_sort(listed)
+bucket_sort(listed)
 
 """
 while True:
