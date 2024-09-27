@@ -9,14 +9,24 @@ def selection_sort(listed):
 def insertion_sort(listed):
     length = len(listed)
     returned = []
+
+    print("Insertion sort works by finding the smallest number and putting it at the beginning and then repeating that process over and over. ")
+
     for i in range(length):
         temp = 11
         for value in listed:
             if value < temp:
+                if temp == 11:
+                    print(f"{value} is the first number, so it's automatically considered the smallest for now. ")
+                else: 
+                    print(f"Since {value} is less than {temp}, it becomes the new smallest number")
+            else:
+                print(f"{value} wasn't the smallest, so we move onto the next one")
                 temp = value
+        print(f"Now we've made it all the way through the list and {temp} was the smallest so we move it forward. ")
         listed.pop(listed.index(temp))
-        returned.append(temp)
-        print(f"The list is now {returned.append(listed)}")
+        listed.insert(i,temp)
+        print(f"The list is now {listed}")
 
 
 def bucket_sort(listed):
