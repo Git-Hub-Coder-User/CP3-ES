@@ -47,7 +47,7 @@ def bucket_sort(listed):
             list2.append(value)
             print(f"Since this value is equal to or greater than five, it goes in the second list. ")
     
-    print("Then we sort the lists using insertion sort. ")
+    print(f"Then we sort the lists using insertion sort. ")
 
     print("The less than five list is sorted first. ")
     list1 = insertion_sort(list1)
@@ -55,9 +55,10 @@ def bucket_sort(listed):
     list2 =insertion_sort(list2)
 
     print("Then the two sorted lists are put together. ")
-    listed = list1.extend(list2)
+    listed.extend(list1)
+    listed.extend(list2)
 
-    print("The list is now sorted. ")
+    print(f"The list is now sorted. The final list is {listed}")
     return listed
 
 def pigeon_sort(listed):
@@ -142,7 +143,7 @@ def get_list():
 
 print("Running! ")
 listed = get_list()
-insertion_sort(listed)
+bucket_sort(listed)
 
 """
 while True:
