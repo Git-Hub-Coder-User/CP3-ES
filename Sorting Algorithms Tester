@@ -63,7 +63,23 @@ def bucket_sort(listed):
     return listed
 
 def pigeon_sort(listed):
-    pass
+    returned = []
+    dictionary = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0, 10:0, }
+    print("Pigeon sort works by putting elements (pigones) in specific spots (pigeonholes). ")
+    for value in listed:
+        dictionary[value] += 1
+        print(f"The next value is {value}, so we put it in its box. Now there are {dictionary[value]} {value}(s) in the box. ")
+    print("Then we put all the values back in the list. ")
+    for key in dictionary:
+        for num in range(dictionary[key]):
+            if dictionary[key] == 1: 
+                print(f"The first box with a pigeon in it is {key} and there is {dictionary[key]} of them. ")
+            else:
+                print(f"The first box with a pigeon in it is {key} and there are {dictionary[key]} of them. ")
+            returned.append(key)
+    print(f"The list is now {returned}. ")
+    return returned
+
 
 def bubble_sort(listed):
     global swaps
@@ -143,7 +159,7 @@ def get_list():
             print("Invalid input. ")
 
 listed = get_list()
-bucket_sort(listed)
+pigeon_sort(listed)
 
 """
 while True:
