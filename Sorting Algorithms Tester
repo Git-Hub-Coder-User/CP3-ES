@@ -32,11 +32,10 @@ def insertion_sort(listed, bs = False):
         if listed == []:
             print(f"The insertion sort took {iterations} laps to sort the list. \n\n")
 
-        if bs == True:
-            return (returned, iterations)
-        else:
-            return returned
-            
+            if bs == True:
+                return (returned, iterations)
+            else:
+                return returned
 
 
 def bucket_sort(listed):
@@ -65,12 +64,12 @@ def bucket_sort(listed):
     iterations += list2[1]
     list2 = list2[0]
 
-    print("Then the two sorted lists are put together. ")
+    print("Then the two sorted lists are put together. \n")
     
     listed = list1
     listed.extend(list2)
 
-    print(f"The list is now sorted. The final list is {listed}. The sort took {iterations} iterations to complete. ")
+    print(f"The list is now sorted. The final list is {listed}. The sort took {iterations} iterations to complete. \n")
     return listed
 
 def pigeon_sort(listed):
@@ -172,20 +171,35 @@ import time
 while True:
     inputed = input("Pick a sorting method A) Selection sort B) Insertion sort C) Bucket sort D) Pigeon Sort E) Bubble sort\n")
     inputed = inputed.strip().lower()
+
+    start = time.gmtime(0) 
+
     if inputed == "a":
+        epoch = time.asctime(start) 
         selection_sort(listed)
+        time = time.time()
         break
     elif inputed == "b":
+        epoch = time.asctime(start) 
         insertion_sort(listed)
+        time = time.time()
         break
     elif inputed == "c":
+        epoch = time.asctime(start) 
         bucket_sort(listed)
+        time = time.time()
         break
     elif inputed == "d":
+        epoch = time.asctime(start) 
         pigeon_sort(listed)
+        time = time.time()
         break
     elif inputed == "e":
+        epoch = time.asctime(start) 
         bubble_sort(listed)
+        time = time.time()
         break
     else: 
         print("Invalid option. \n")
+
+print(f"The algorithm took {time} seconds to complete. ")
