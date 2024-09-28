@@ -153,6 +153,7 @@ def bubble_sort(listed, show_steps):
         if index == len(listed) - 1 and swaps == 0:
             if show_steps == True:
                 print("The list is now sorted. ")
+            print(f"The list is {listed}. It took {total_swaps} swaps to complete. ")
             return listed
         elif index == len(listed) - 1:
             if show_steps == True:
@@ -160,7 +161,6 @@ def bubble_sort(listed, show_steps):
             index = 0
             swaps = 0
         
-        print(f"The list is {listed}. It took {total_swaps} swaps to complete. ")
         # non_existant = input("This is to pause the freaking thing")
 
 
