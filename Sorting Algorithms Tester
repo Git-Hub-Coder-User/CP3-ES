@@ -191,6 +191,7 @@ def get_list():
             print("Invalid input. ")
 
 listed = get_list()
+import time
 
 while True:
     inputed = input("Pick a sorting method A) Selection sort B) Insertion sort C) Bucket sort D) Pigeon Sort E) Bubble sort")
