@@ -13,25 +13,31 @@ def selection_sort(listed, show_steps):
     pass
 
 def insertion_sort(listed, show_steps, bs = False):
-    print("Insertion sort works by finding the smallest number first and then putting it in its spot and then repeating that process with the next smallest and so on. \n")
+    if show_steps == True: 
+        print("Insertion sort works by finding the smallest number first and then putting it in its spot and then repeating that process with the next smallest and so on. \n")
     iterations = 0
     returned = []
     while True:
-        print(f"The first unsorted item in the list is {listed[0]}, so we start by assuming that's the smallest. \n")
+        if show_steps == True: 
+            print(f"The first unsorted item in the list is {listed[0]}, so we start by assuming that's the smallest. \n")
         temp = listed[0]
         for value in listed:
             if value < temp:
-                print(f"{value} is smaller than {temp} so we assume it's the smallest for now. Then we move onto the next item. \n")
+                if show_steps == True: 
+                    print(f"{value} is smaller than {temp} so we assume it's the smallest for now. Then we move onto the next item. \n")
                 temp = value
             else:
-                print(f"{value} is not smaller than {temp} so we move onto the next item. \n")
-        print(f"We've gone all the way through the list and {temp} was the smallest so we put it in its spot. \n\n")
+                if show_steps == True: 
+                    print(f"{value} is not smaller than {temp} so we move onto the next item. \n")
+        if show_steps == True: 
+            print(f"We've gone all the way through the list and {temp} was the smallest so we put it in its spot. \n\n")
 
         listed.pop(listed.index(temp))
         returned.append(temp)
         shown = returned.copy()
         shown.extend(listed)
-        print(f"The list is now{shown}\n\n")
+        if show_steps == True: 
+            print(f"The list is now{shown}\n\n")
 
         iterations += 1
 
@@ -48,29 +54,35 @@ def bucket_sort(listed, show_steps):
     list1 = [] #Less than five
     list2 = [] #Greater than or equal to five
 
-    print("Bucket sort starts by dividing the elements into lists. In this case we'll use two categories or 'buckets'. \n\n")
+    if show_steps == True: 
+        print("Bucket sort starts by dividing the elements into lists. In this case we'll use two categories or 'buckets'. \n\n")
 
     for value in listed:
         if value < 5:
             list1.append(value)
-            print(f"Since {value} is less than five, it goes in the first list. \n")
+            if show_steps == True:
+                print(f"Since {value} is less than five, it goes in the first list. \n")
         elif value >= 5:
             list2.append(value)
-            print(f"Since this value is equal to or greater than five, it goes in the second list. \n")
-    
-    print(f"Then we sort the lists using insertion sort. \n")
+            if show_steps == True:
+                print(f"Since this value is equal to or greater than five, it goes in the second list. \n")
+    if show_steps == True:
+        print(f"Then we sort the lists using insertion sort. \n")
 
-    print("The less than five list is sorted first. \n")
-    list1 = insertion_sort(list1, True)
+    if show_steps == True:
+        print("The less than five list is sorted first. \n")
+    list1 = insertion_sort(list1, show_steps, True)
     iterations = list1[1]
     list1 = list1[0]
 
-    print("The greater than or equal to five list is sorted next. \n")
+    if show_steps == True:
+        print("The greater than or equal to five list is sorted next. \n")
     list2 = insertion_sort(list2, True)
     iterations += list2[1]
     list2 = list2[0]
 
-    print("Then the two sorted lists are put together. \n")
+    if show_steps == True:
+        print("Then the two sorted lists are put together. \n")
     
     listed = list1
     listed.extend(list2)
@@ -81,29 +93,37 @@ def bucket_sort(listed, show_steps):
 def pigeon_sort(listed, show_steps):
     returned = []
     dictionary = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0, 10:0, }
-    print("Pigeon sort works by putting elements (pigones) in specific spots (pigeonholes). \n")
+    if show_steps == True:
+        print("Pigeon sort works by putting elements (pigones) in specific spots (pigeonholes). \n")
     for value in listed:
         dictionary[value] += 1
-        print(f"The next value is {value}, so we put it in its box. Now there are {dictionary[value]} {value}(s) in the box. \n")
-    print("Then we put all the values back in the list. \n")
+        if show_steps == True:
+            print(f"The next value is {value}, so we put it in its box. Now there are {dictionary[value]} {value}(s) in the box. \n")
+    if show_steps == True:
+        print("Then we put all the values back in the list. \n")
 
     for key in dictionary:
         for num in range(dictionary[key]):
             if dictionary[key] == 1: 
-                print(f"The first box with a pigeon in it is {key} and there is {dictionary[key]} of them. \n")
+                if show_steps == True:
+                    print(f"The first box with a pigeon in it is {key} and there is {dictionary[key]} of them. \n")
             else:
-                print(f"The first box with a pigeon in it is {key} and there are {dictionary[key]} of them. \n")
+                if show_steps == True:
+                    print(f"The first box with a pigeon in it is {key} and there are {dictionary[key]} of them. \n")
             returned.append(key)
-    print(f"The list is now {returned}. \n")
+    if show_steps == True:
+        print(f"The list is now {returned}. \n")
     return returned
 
 
 def bubble_sort(listed, show_steps):
     swaps = 0
     total_swaps = 0
-    print("Bubble sort works by continously swapping elements so the smaller one goes first. \n")
+    if show_steps == True:
+        print("Bubble sort works by continously swapping elements so the smaller one goes first. \n")
     index = 0
-    print("We start at the beginning of the list. \n")
+    if show_steps == True:
+        print("We start at the beginning of the list. \n")
 
     while True:
         # print("Made it into the first loop! ")
@@ -112,7 +132,8 @@ def bubble_sort(listed, show_steps):
 
         if listed[index] > listed[index + 1]:
             # print("Made it past comparison! ")
-            print(f"{listed[index]} is greater than {listed[index + 1]}, so they swap. \n")
+            if show_steps == True:
+                print(f"{listed[index]} is greater than {listed[index + 1]}, so they swap. \n")
             temp = listed[index]
             listed[index] = listed[index + 1]
             listed[index + 1] = temp
@@ -120,7 +141,8 @@ def bubble_sort(listed, show_steps):
             total_swaps += 1
             index += 1
         elif listed[index] <= listed[index +1]:
-            print(f"Since {listed[index]} is not bigger than {listed[index + 1]}, the both stay where they are. \n")
+            if show_steps == True:
+                print(f"Since {listed[index]} is not bigger than {listed[index + 1]}, the both stay where they are. \n")
             index += 1
         else:
             print("An error occured. \n")
@@ -129,12 +151,14 @@ def bubble_sort(listed, show_steps):
         
         
         if index == len(listed) - 1 and swaps == 0:
-            print("The list is now sorted. ")
+            if show_steps == True:
+                print("The list is now sorted. ")
             return listed
         elif index == len(listed) - 1:
+            if show_steps == True:
                 print("This is the end of the list, so we go back. \n\n")
-                index = 0
-                swaps = 0
+            index = 0
+            swaps = 0
         
         print(f"The list is {listed}. It took {total_swaps} swaps to complete. ")
         # non_existant = input("This is to pause the freaking thing")
