@@ -9,10 +9,10 @@ To do:
 
 """
 
-def selection_sort(listed):
+def selection_sort(listed, show_steps):
     pass
 
-def insertion_sort(listed, bs = False):
+def insertion_sort(listed, show_steps, bs = False):
     print("Insertion sort works by finding the smallest number first and then putting it in its spot and then repeating that process with the next smallest and so on. \n")
     iterations = 0
     returned = []
@@ -44,7 +44,7 @@ def insertion_sort(listed, bs = False):
                 return returned
 
 
-def bucket_sort(listed):
+def bucket_sort(listed, show_steps):
     list1 = [] #Less than five
     list2 = [] #Greater than or equal to five
 
@@ -78,7 +78,7 @@ def bucket_sort(listed):
     print(f"The list is now sorted. The final list is {listed}. The sort took {iterations} iterations to complete. \n")
     return listed
 
-def pigeon_sort(listed):
+def pigeon_sort(listed, show_steps):
     returned = []
     dictionary = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0, 10:0, }
     print("Pigeon sort works by putting elements (pigones) in specific spots (pigeonholes). \n")
@@ -98,7 +98,7 @@ def pigeon_sort(listed):
     return returned
 
 
-def bubble_sort(listed):
+def bubble_sort(listed, show_steps):
     swaps = 0
     total_swaps = 0
     print("Bubble sort works by continously swapping elements so the smaller one goes first. \n")
@@ -178,31 +178,43 @@ while True:
     inputed = input("Pick a sorting method A) Selection sort B) Insertion sort C) Bucket sort D) Pigeon Sort E) Bubble sort\n")
     inputed = inputed.strip().lower()
 
+    while True: 
+        show_steps = input("Do you want to see the step by step sort? (y or n)? \n").strip().lower()
+
+        if show_steps == "y":
+            show_steps = True
+            break
+        elif show_steps == "n":
+            show_steps = False
+            break
+        else:
+            print("Invalid answer. \n")
+
     start = time.gmtime(0) 
 
     if inputed == "a":
         epoch = time.asctime(start) 
-        selection_sort(listed)
+        selection_sort(listed, show_steps)
         time = time.time()
         break
     elif inputed == "b":
         epoch = time.asctime(start) 
-        insertion_sort(listed)
+        insertion_sort(listed, show_steps)
         time = time.time()
         break
     elif inputed == "c":
         epoch = time.asctime(start) 
-        bucket_sort(listed)
+        bucket_sort(listed, show_steps)
         time = time.time()
         break
     elif inputed == "d":
         epoch = time.asctime(start) 
-        pigeon_sort(listed)
+        pigeon_sort(listed, show_steps)
         time = time.time()
         break
     elif inputed == "e":
         epoch = time.asctime(start) 
-        bubble_sort(listed)
+        bubble_sort(listed, show_steps)
         time = time.time()
         break
     else: 
