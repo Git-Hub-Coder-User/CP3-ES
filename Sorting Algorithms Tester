@@ -6,6 +6,7 @@ To do:
     Give user a choice of whether or not they see the steps
     Fix time
     Double check comparison/swap numbers
+    Fix bucket sort
 
 """
 
@@ -42,7 +43,7 @@ def insertion_sort(listed, show_steps, bs = False):
         iterations += 1
 
         if listed == []:
-            print(f"The insertion sort took {iterations} laps to sort the list. \n\n")
+            print(f"The insertion sort took {iterations} laps to sort the list. The list is now {returned}. \n\n")
 
             if bs == True:
                 return (returned, iterations)
@@ -111,8 +112,7 @@ def pigeon_sort(listed, show_steps):
                 if show_steps == True:
                     print(f"The first box with a pigeon in it is {key} and there are {dictionary[key]} of them. \n")
             returned.append(key)
-    if show_steps == True:
-        print(f"The list is now {returned}. \n")
+    print(f"The list is now {returned}. \n")
     return returned
 
 
@@ -176,14 +176,14 @@ def get_list():
             # print("Input your own number or enter 'end' to stop. ")
             inputed = 4
             while True:
-                inputed = int(input("Input your own number or enter '0' to stop. "))
+                inputed = int(input("Input your own number or enter '0' to stop. \n"))
                 if inputed <= 10 and inputed > 0: 
                     listed.append(inputed)
                 elif inputed == 0:
-                    print("Your list is" + str(listed))
+                    print("Your list is" + str(listed) +"\n")
                     return listed
                 else:
-                    print("Invalid option")
+                    print("Invalid option\n")
 
         elif inputed == "b":
             x = random.randrange(3,9)
@@ -244,4 +244,4 @@ while True:
     else: 
         print("Invalid option. \n")
 
-print(f"The algorithm took {time} seconds to complete. ")
+print(f"The algorithm took {time} seconds to complete. \n")
