@@ -3,7 +3,6 @@ This program will sort numbers with different algorithms and tell you how long i
 Users needs to be able to input their own array of numbers or generate a random list, view the step by step process, choose which algorithm is used, see supported array, and see number of comparisons/swaps
 
 To do:
-    Give user a choice of whether or not they see the steps
     Fix time
     Double check comparison/swap numbers
     Fix bucket sort
@@ -38,7 +37,7 @@ def insertion_sort(listed, show_steps, bs = False):
         shown = returned.copy()
         shown.extend(listed)
         if show_steps == True: 
-            print(f"The list is now{shown}\n\n")
+            print(f"The list is now {shown}\n\n")
 
         iterations += 1
 
@@ -70,27 +69,38 @@ def bucket_sort(listed, show_steps):
     if show_steps == True:
         print(f"Then we sort the lists using insertion sort. \n")
 
-    if show_steps == True:
-        print("The less than five list is sorted first. \n")
-    list1 = insertion_sort(list1, show_steps, True)
-    iterations = list1[1]
-    list1 = list1[0]
+    if len(list1) >= 1: 
+        if show_steps == True:
+            print("The less than five list is sorted first. \n")
+        list1 = insertion_sort(list1, show_steps, True)
+        iterations = list1[1]
+        list1 = list1[0]
+    else:
+        print("The first list is empty, so we don't sort it. ")
 
-    if show_steps == True:
-        print("The greater than or equal to five list is sorted next. \n")
-    list2 = insertion_sort(list2, True)
-    iterations += list2[1]
-    list2 = list2[0]
+    if len(list1) >= 1: 
+        if show_steps == True:
+            print("The greater than or equal to five list is sorted next. \n")
+        list2 = insertion_sort(list2, show_steps, True)
+        iterations += list2[1]
+        list2 = list2[0]
+    else:
+        print("The second list is empty, so we don't sort it. ")
+
 
     if show_steps == True:
         print("Then the two sorted lists are put together. \n")
     
+    print(list1)
+    print(list2)
+
     listed = list1
     listed.extend(list2)
 
     print(f"The list is now sorted. The final list is {listed}. The sort took {iterations} iterations to complete. \n")
     return listed
 
+    
 def pigeon_sort(listed, show_steps):
     returned = []
     dictionary = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0, 10:0, }
