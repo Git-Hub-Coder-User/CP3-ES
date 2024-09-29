@@ -5,12 +5,53 @@ Users needs to be able to input their own array of numbers or generate a random 
 To do:
     Fix time
     Double check comparison/swap numbers
-    Fix bucket sort
 
 """
 
 def selection_sort(listed, show_steps):
-    pass
+    print("Selection sort works by finding the smallest number and swapping it into place. \n\n")
+    switches = 0
+    temp = 0
+    index = 0
+    
+    for i in range(len(listed)): #See if there's a better loop for this
+        for j in range(i, len(listed)):
+            print(i)
+            if j == i:
+                if show_steps == True:
+                    print(f"Since {listed[j]} is the first value, we assume it's the smallest for now. \n")
+                    pass
+                temp = listed[j] 
+                index = j
+            else:
+                if listed[j] < temp:
+                    if show_steps == True:
+                        print(f"{listed[j]} is less than {temp}, so we assume it's the smallest for now and move onto the next number. \n")
+                        pass
+                    temp = listed[j]
+                    index = j
+                else:
+                    if show_steps == True:
+                        print(f"{listed[j]} is not less than {temp}, so we move onto the next number. \n")
+                        pass
+        
+        if show_steps == True: 
+            print(f"Now that we know {temp} is the smallest unsorted number, we switch it into it's spot. ")
+            
+        if listed[listed.index(temp)] == listed[i]:
+            if show_steps == True: 
+                print("In this case, it's already in the right spot so we don't need to move it. ")
+        else: 
+            listed[index], listed[i] = listed[i], listed[index]
+            switches += 1
+        
+        print(f"The list is now {listed}. ")
+    
+    print(f"The list is now sorted. The sorted list is {listed}. The sort took {switches} switches")
+
+    return(listed)
+
+
 
 def insertion_sort(listed, show_steps, bs = False):
     if show_steps == True: 
