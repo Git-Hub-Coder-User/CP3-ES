@@ -14,20 +14,18 @@ def selection_sort(listed, show_steps):
     temp = 0
     index = 0
     
-    for i in range(len(listed)): #See if there's a better loop for this
+    for i in range(len(listed)): 
         for j in range(i, len(listed)):
             print(i)
             if j == i:
                 if show_steps == True:
                     print(f"Since {listed[j]} is the first value, we assume it's the smallest for now. \n")
-                    pass
                 temp = listed[j] 
                 index = j
             else:
                 if listed[j] < temp:
                     if show_steps == True:
                         print(f"{listed[j]} is less than {temp}, so we assume it's the smallest for now and move onto the next number. \n")
-                        pass
                     temp = listed[j]
                     index = j
                 else:
