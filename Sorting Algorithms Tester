@@ -11,7 +11,6 @@ def selection_sort(listed, show_steps):
     
     for i in range(len(listed)): 
         for j in range(i, len(listed)):
-            print(i)
             if j == i:
                 if show_steps == True:
                     print(f"Since {listed[j]} is the first value, we assume it's the smallest for now. \n")
@@ -33,12 +32,12 @@ def selection_sort(listed, show_steps):
             
         if listed[listed.index(temp)] == listed[i]:
             if show_steps == True: 
-                print("In this case, it's already in the right spot so we don't need to move it. ")
+                print("In this case, it's already in the right spot so we don't need to move it. \n")
         else: 
             listed[index], listed[i] = listed[i], listed[index]
             switches += 1
         
-        print(f"The list is now {listed}. ")
+        print(f"\nThe list is now {listed}. \n")
     
     print(f"The list is now sorted. The sorted list is {listed}. The sort took {switches} switches")
 
@@ -64,7 +63,7 @@ def insertion_sort(listed, show_steps, bs = False):
                 if show_steps == True: 
                     print(f"{value} is not smaller than {temp} so we move onto the next item. \n")
         if show_steps == True: 
-            print(f"We've gone all the way through the list and {temp} was the smallest so we put it in its spot. \n\n")
+            print(f"We've gone all the way through the list and {temp} was the smallest so we put it in its spot. \n")
 
         listed.pop(listed.index(temp))
         returned.append(temp)
@@ -76,7 +75,7 @@ def insertion_sort(listed, show_steps, bs = False):
         iterations += 1
 
         if listed == []:
-            print(f"The insertion sort took {iterations} laps to sort the list. The list is now {returned}. \n\n")
+            print(f"The insertion sort took {iterations} laps to sort the list. The sorted list is {returned}. \n\n")
 
             if bs == True:
                 return (returned, iterations)
@@ -189,12 +188,12 @@ def bubble_sort(listed, show_steps):
         
         if index == len(listed) - 1 and swaps == 0:
             if show_steps == True:
-                print("The list is now sorted. ")
-            print(f"The list is {listed}. It took {total_swaps} swaps to complete. ")
+                print("The list is now sorted. \n")
+            print(f"The list is {listed}. It took {total_swaps} swaps to complete. \n")
             return listed
         elif index == len(listed) - 1:
             if show_steps == True:
-                print("This is the end of the list, so we go back. \n\n")
+                print(f"This is the end of the list, so we go back. The list is currently {listed} \n\n")
             index = 0
             swaps = 0
         
@@ -240,6 +239,7 @@ while True:
 
     while True: 
         show_steps = input("Do you want to see the step by step sort? (y or n)? \n").strip().lower()
+        print("")
 
         if show_steps == "y":
             show_steps = True
