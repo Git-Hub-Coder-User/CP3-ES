@@ -1,11 +1,6 @@
 """
 This program will sort numbers with different algorithms and tell you how long it took and the number of swaps (time.time) I need 4+ algorithms
 Users needs to be able to input their own array of numbers or generate a random list, view the step by step process, choose which algorithm is used, see supported array, and see number of comparisons/swaps
-
-To do:
-    Fix time
-    Double check comparison/swap numbers
-
 """
 
 def selection_sort(listed, show_steps):
@@ -129,9 +124,6 @@ def bucket_sort(listed, show_steps):
 
     if show_steps == True:
         print("Then the two sorted lists are put together. \n")
-    
-    print(list1)
-    print(list2)
 
     listed = list1
     listed.extend(list2)
@@ -175,10 +167,6 @@ def bubble_sort(listed, show_steps):
         print("We start at the beginning of the list. \n")
 
     while True:
-        # print("Made it into the first loop! ")
-        
-        # print(str(index) + " is the index")
-
         if listed[index] > listed[index + 1]:
             # print("Made it past comparison! ")
             if show_steps == True:
@@ -222,7 +210,6 @@ def get_list():
         inputed = input("Do you want to A) Insert your own numbers between one and ten or B) Have a random list generated. \n")
         inputed = inputed.strip().lower()
         if inputed == "a":
-            # print("Input your own number or enter 'end' to stop. ")
             inputed = 4
             while True:
                 inputed = int(input("Input your own number or enter '0' to stop. \n"))
