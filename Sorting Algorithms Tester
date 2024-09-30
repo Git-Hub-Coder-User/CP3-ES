@@ -199,6 +199,38 @@ def bubble_sort(listed, show_steps):
         # non_existant = input("This is to pause the freaking thing")
 
 
+def cycle_sort(listed, show_steps):
+    print("Cycle sort works by going through each number, counting how many numbers in the list are smaller than it, and putting it where it belongs")
+    swaps = 0
+    for value in listed:
+        str = input("Paused: ")
+        counter = 0
+        for value2 in listed:
+            if value > value2:
+                if show_steps == True:
+                    print(f"{value} is greater than {value2}, so there are {counter} numbers less than {value} so far. \n")
+                counter += 1
+            else:
+                if show_steps == True:
+                    print(f"{value} is not greater than {value2}, so we don't do anything. \n")
+
+        if show_steps == True: 
+            print(f"There are {counter} numbers greater than {value}, so now we put it in its spot. \n")
+
+        if listed.index(value) == counter:
+            if show_steps == True:
+                print(f"{value} is already in the right spot, so we don't need to do anything. \n")
+        else:
+            listed.insert(counter, value)
+        
+        if show_steps == True:
+            print(f"The list is now {listed}. ")
+
+    print(f"Now the list is sorted. The sorted list is {listed} and it took {swaps} swaps. \n")
+
+    return(listed)
+
+
 import random
 
 listed = []
@@ -275,6 +307,9 @@ while True:
         epoch = time.asctime(start) 
         bubble_sort(listed, show_steps)
         time = time.time()
+        break
+    elif inputed == "":
+        cycle_sort(listed, show_steps)
         break
     else: 
         print("Invalid option. \n")
