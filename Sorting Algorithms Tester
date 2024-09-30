@@ -280,4 +280,4 @@ while True:
     else: 
         print("Invalid option. \n")
 
-print(f"The algorithm took {time} seconds to complete. \n")
+print(f"The algorithm took {time} nanoseconds to complete. \n")
