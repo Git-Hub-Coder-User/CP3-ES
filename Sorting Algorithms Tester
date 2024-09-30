@@ -44,7 +44,6 @@ def selection_sort(listed, show_steps):
     return(listed)
 
 
-
 def insertion_sort(listed, show_steps, bs = False):
     if show_steps == True: 
         print("Insertion sort works by finding the smallest number first and then putting it in its spot and then repeating that process with the next smallest and so on. \n")
