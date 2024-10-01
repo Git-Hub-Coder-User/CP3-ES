@@ -200,6 +200,7 @@ def bubble_sort(listed, show_steps):
 
 
 def cycle_sort(listed, show_steps):
+    #Incomplete, not implemented
     print("Cycle sort works by going through each number, counting how many numbers in the list are smaller than it, and putting it where it belongs. ")
     swaps = 0
     for value in listed:
@@ -312,10 +313,6 @@ while True:
         bubble_sort(listed, show_steps)
         time = time.time()
         break
-    elif inputed == "":
-        epoch = time.asctime(start)
-        cycle_sort(listed, show_steps)
-        time = time.time()
         break
     else: 
         print("Invalid option. \n")
