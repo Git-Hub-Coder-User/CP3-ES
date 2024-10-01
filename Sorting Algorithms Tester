@@ -200,11 +200,12 @@ def bubble_sort(listed, show_steps):
 
 
 def cycle_sort(listed, show_steps):
-    print("Cycle sort works by going through each number, counting how many numbers in the list are smaller than it, and putting it where it belongs")
+    print("Cycle sort works by going through each number, counting how many numbers in the list are smaller than it, and putting it where it belongs. ")
     swaps = 0
     for value in listed:
         str = input("Paused: ")
         counter = 0
+        index = 0
         for value2 in listed:
             if value > value2:
                 if show_steps == True:
@@ -213,15 +214,26 @@ def cycle_sort(listed, show_steps):
             else:
                 if show_steps == True:
                     print(f"{value} is not greater than {value2}, so we don't do anything. \n")
+        index += 1
 
         if show_steps == True: 
-            print(f"There are {counter} numbers greater than {value}, so now we put it in its spot. \n")
+            print(f"There are {counter} numbers less than {value}, so now we put it in its spot. \n")
 
+        """
         if listed.index(value) == counter:
             if show_steps == True:
                 print(f"{value} is already in the right spot, so we don't need to do anything. \n")
         else:
+            print(f"The index cut is {index}")
+            listed.pop(index)
             listed.insert(counter, value)
+            swaps += 1
+        """
+
+        print(f"The index cut is {index}. ")
+        listed.pop(index)
+        listed.insert(counter, value)
+        swaps += 1
         
         if show_steps == True:
             print(f"The list is now {listed}. ")
@@ -246,7 +258,7 @@ def get_list():
                 if inputed <= 10 and inputed > 0: 
                     listed.append(inputed)
                 elif inputed == 0:
-                    print("Your list is" + str(listed) +"\n")
+                    print("Your list is " + str(listed) +"\n")
                     return listed
                 else:
                     print("Invalid option\n")
@@ -309,9 +321,11 @@ while True:
         time = time.time()
         break
     elif inputed == "":
+        epoch = time.asctime(start)
         cycle_sort(listed, show_steps)
+        time = time.time()
         break
     else: 
         print("Invalid option. \n")
 
-print(f"The algorithm took {time} nanoseconds to complete. \n")
+print(f"Time to complete: {time} \n")
