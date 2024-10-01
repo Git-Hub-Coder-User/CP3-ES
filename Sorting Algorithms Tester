@@ -205,7 +205,7 @@ def cycle_sort(listed, show_steps):
     for value in listed:
         str = input("Paused: ")
         counter = 0
-        index = 0
+        index = -1
         for value2 in listed:
             if value > value2:
                 if show_steps == True:
@@ -219,7 +219,6 @@ def cycle_sort(listed, show_steps):
         if show_steps == True: 
             print(f"There are {counter} numbers less than {value}, so now we put it in its spot. \n")
 
-        """
         if listed.index(value) == counter:
             if show_steps == True:
                 print(f"{value} is already in the right spot, so we don't need to do anything. \n")
@@ -228,13 +227,6 @@ def cycle_sort(listed, show_steps):
             listed.pop(index)
             listed.insert(counter, value)
             swaps += 1
-        """
-
-        print(f"The index cut is {index}. ")
-        listed.pop(index)
-        listed.insert(counter, value)
-        swaps += 1
-        
         if show_steps == True:
             print(f"The list is now {listed}. ")
 
