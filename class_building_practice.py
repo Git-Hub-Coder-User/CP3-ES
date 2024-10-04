@@ -13,7 +13,7 @@ In VSCode build a class for a movie. Remember movies need to have titles, releas
 
 -Search director - Completed 
 
--search cast
+-search cast - Completed
 
 -Implementation structure
 
@@ -71,34 +71,35 @@ class Movie():
         return temp
     
 
-#These are functions that do the right things so I can reference them
-def alphabetical(reversed):
-    def function(value):
-        return value.title
-    listed.sort(reverse=reversed, key=function)
-    return listed
+for i in range(1): #To help make the code collapsable. This loop has all the reference functions
+    #These are functions that do the right things so I can reference them
+    def alphabetical(reversed):
+        def function(value):
+            return value.title
+        listed.sort(reverse=reversed, key=function)
+        return listed
 
-def chronological(reversed):
-    def function(value):
-        return value.release_date
-    listed.sort(reverse=reversed, key=function)
-    return listed
+    def chronological(reversed):
+        def function(value):
+            return value.release_date
+        listed.sort(reverse=reversed, key=function)
+        return listed
 
-def genre(genre):
-    temp = []
-    for value in listed:
-        if value.genre == genre:
-            temp.append(value)
-    return temp
+    def genre(genre):
+        temp = []
+        for value in listed:
+            if value.genre == genre:
+                temp.append(value)
+        return temp
 
-def search(director):
-    pass
+    def search(director):
+        pass
 
-def print_list(listed):
-    for value in listed:
-        print(value)
+    def print_list(listed):
+        for value in listed:
+            print(value)
     
-for i in range(1): #To help make the code collapsable 
+for i in range(1): #To help make the code collapsable This loop creates all the objects. 
     movie1 = Movie("The Shawshank Redemption", 1994, "Frank Darabont", "R", "Drama", ["Tim Robbins", "Morgan Freeman"])
 
     movie2 = Movie("Pulp Fiction", 1994, "Quentin Tarantino", "R", "Crime", ["John Travolta", "Uma Thurman", "Samuel L. Jackson"])
@@ -161,7 +162,31 @@ for i in range(1): #To help make the code collapsable
 
 listed = [movie1, movie2, movie3, movie4, movie5, movie6, movie7, movie8, movie9, movie10, movie11, movie12, movie13, movie14, movie15, movie16, movie17, movie18, movie19, movie20, movie21, movie22, movie23, movie24, movie25, movie26, movie27, movie28, movie29, movie30,  ]
 
+while True:
+    inputed = input("Would you like to \n\tA) See a printed list of all the movies in the data, \n\tB) See all movies in alphabetical order, \n\tC) See all movies in chronological order of release date \n\tD) Search by genre \n\tE) Search by director \n\tF) Search by cast? \n\tG) Exit the program?  \n").strip().lower()
 
-temp = Movie.c_search(Movie, "Freeman")
-
-print_list(temp)
+    if inputed == "a":
+        print_list(listed)
+    elif inputed == "b":
+        while True: 
+            inputed = input("\nWould you like the list to be ascending or descending? \n")
+            if "asc" in inputed:
+                temp = temp.alphabetical(Movie, False)
+            elif "desc" in inputed:
+                temp = temp.alphabetical(Movie, True)
+            else:
+                print("Invalid option. ")
+                continue
+            print_list(temp)
+    elif inputed == "c":
+        pass
+    elif inputed == "d":
+        pass
+    elif inputed == "e":
+        pass
+    elif inputed == "f":
+        pass
+    elif inputed == "g":
+        break
+    else:
+        print("\nInvalid input. \n")
