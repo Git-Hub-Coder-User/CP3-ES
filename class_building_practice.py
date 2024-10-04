@@ -21,6 +21,9 @@ Create at least 20 objects using your movie class.
 """
 
 class Movie():
+
+    listed = []
+
     def __init__(self, title, release_date, directors, rating, genre, cast):
         self.title = title
         self.release_date = release_date
@@ -28,11 +31,19 @@ class Movie():
         self.rating = rating
         self.genre = genre
         self.cast = cast
+        Movie.listed.append(self)
     
     def __str__(self):
         return f"{self.title}: \n\tRelease date: {self.release_date} \n\tDirector(s): {self.directors} \n\tRating: {self.rating} \n\tGenre: {self.genre} \n\tCast: {self.cast}"
+    
+    def alphabetical(self, reversed):
+        def function(value):
+            return value.title
+        Movie.listed.sort(reverse=reversed, key=function)
+        return Movie.listed
+        
 
-
+#These are functions that do the right things so I can reference them
 def alphabetical(reversed):
     def function(value):
         return value.title
@@ -51,6 +62,9 @@ def genre(genre):
         if value.genre == genre:
             temp.append(value)
     return temp
+
+def search(director):
+    pass
 
 def print_list(listed):
     for value in listed:
@@ -120,6 +134,6 @@ for i in range(1): #To help make the code collapsable
 listed = [movie1, movie2, movie3, movie4, movie5, movie6, movie7, movie8, movie9, movie10, movie11, movie12, movie13, movie14, movie15, movie16, movie17, movie18, movie19, movie20, movie21, movie22, movie23, movie24, movie25, movie26, movie27, movie28, movie29, movie30,  ]
 
 
-listed = genre("Crime")
+listed = Movie.alphabetical(Movie, False)
 
 print_list(listed)
