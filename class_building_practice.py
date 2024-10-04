@@ -9,11 +9,13 @@ In VSCode build a class for a movie. Remember movies need to have titles, releas
 
 -Method that sorts the movies in chronological order - Also a function, but it works
 
--List genre
+-List genre - Completed
 
 -Search director
 
 -search cast
+
+-Implementation structure
 
 Create at least 20 objects using your movie class. 
 """
@@ -30,21 +32,6 @@ class Movie():
     def __str__(self):
         return f"{self.title}: \n\tRelease date: {self.release_date} \n\tDirector(s): {self.directors} \n\tRating: {self.rating} \n\tGenre: {self.genre} \n\tCast: {self.cast}"
 
-    #Sort chronologically
-    def chronological(self):
-        pass
-
-    #Show all movies of a genre
-    def genre(self):
-        pass
-
-    #Search by director
-    def director(self):
-        pass
-
-    #Search by cast
-    def cast(self):
-        pass
 
 def alphabetical(reversed):
     def function(value):
@@ -57,6 +44,13 @@ def chronological(reversed):
         return value.release_date
     listed.sort(reverse=reversed, key=function)
     return listed
+
+def genre(genre):
+    temp = []
+    for value in listed:
+        if value.genre == genre:
+            temp.append(value)
+    return temp
 
 def print_list(listed):
     for value in listed:
@@ -126,6 +120,6 @@ for i in range(1): #To help make the code collapsable
 listed = [movie1, movie2, movie3, movie4, movie5, movie6, movie7, movie8, movie9, movie10, movie11, movie12, movie13, movie14, movie15, movie16, movie17, movie18, movie19, movie20, movie21, movie22, movie23, movie24, movie25, movie26, movie27, movie28, movie29, movie30,  ]
 
 
-listed = chronological(False)
+listed = genre("Crime")
 
 print_list(listed)
