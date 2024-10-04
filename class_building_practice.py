@@ -41,7 +41,13 @@ class Movie():
             return value.title
         Movie.listed.sort(reverse=reversed, key=function)
         return Movie.listed
-        
+    
+    def chronological(self, reversed):
+        def function(value):
+            return value.release_date
+        Movie.listed.sort(reverse=reversed, key=function)
+        return Movie.listed
+    
 
 #These are functions that do the right things so I can reference them
 def alphabetical(reversed):
@@ -134,6 +140,6 @@ for i in range(1): #To help make the code collapsable
 listed = [movie1, movie2, movie3, movie4, movie5, movie6, movie7, movie8, movie9, movie10, movie11, movie12, movie13, movie14, movie15, movie16, movie17, movie18, movie19, movie20, movie21, movie22, movie23, movie24, movie25, movie26, movie27, movie28, movie29, movie30,  ]
 
 
-listed = Movie.alphabetical(Movie, False)
+listed = Movie.chronological(Movie, False)
 
 print_list(listed)
