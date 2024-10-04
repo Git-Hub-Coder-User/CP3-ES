@@ -5,13 +5,13 @@ In VSCode build a class for a movie. Remember movies need to have titles, releas
 
 -Needs string methods that will print out all the information for the movies - Complete
 
--Method that sorts the movies in alphabetical order - It's a function but it works
+-Method that sorts the movies in alphabetical order - It's a function but it works - Method now
 
--Method that sorts the movies in chronological order - Also a function, but it works
+-Method that sorts the movies in chronological order - Also a function, but it works - Method now
 
 -List genre - Completed
 
--Search director
+-Search director - Completed 
 
 -search cast
 
@@ -48,10 +48,17 @@ class Movie():
         Movie.listed.sort(reverse=reversed, key=function)
         return Movie.listed
     
-    def genre(genre):
+    def genre(self, genre):
         temp = []
         for value in listed:
             if value.genre == genre:
+                temp.append(value)
+        return temp
+    
+    def d_search(self, director):
+        temp = []
+        for value in listed: 
+            if director in value.directors:
                 temp.append(value)
         return temp
     
@@ -144,9 +151,9 @@ for i in range(1): #To help make the code collapsable
 
     movie30 = Movie("If You're Reading This", 2000, "Autumn Merlin", "G", "Drama", ["Jessica Smith", "Lyra O'Brien", "Maya Doyle"])
 
-listed = ["LISTED!", movie1, movie2, movie3, movie4, movie5, movie6, movie7, movie8, movie9, movie10, movie11, movie12, movie13, movie14, movie15, movie16, movie17, movie18, movie19, movie20, movie21, movie22, movie23, movie24, movie25, movie26, movie27, movie28, movie29, movie30,  ]
+listed = [movie1, movie2, movie3, movie4, movie5, movie6, movie7, movie8, movie9, movie10, movie11, movie12, movie13, movie14, movie15, movie16, movie17, movie18, movie19, movie20, movie21, movie22, movie23, movie24, movie25, movie26, movie27, movie28, movie29, movie30,  ]
 
 
-temp = Movie.chronological(Movie, False)
+temp = Movie.d_search(Movie, "Frank")
 
 print_list(temp)
