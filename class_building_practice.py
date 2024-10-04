@@ -62,6 +62,14 @@ class Movie():
                 temp.append(value)
         return temp
     
+    def c_search(self, human):
+        temp = []
+        for value in listed: 
+            for value2 in value.cast: 
+                if human in value2:
+                    temp.append(value)
+        return temp
+    
 
 #These are functions that do the right things so I can reference them
 def alphabetical(reversed):
@@ -154,6 +162,6 @@ for i in range(1): #To help make the code collapsable
 listed = [movie1, movie2, movie3, movie4, movie5, movie6, movie7, movie8, movie9, movie10, movie11, movie12, movie13, movie14, movie15, movie16, movie17, movie18, movie19, movie20, movie21, movie22, movie23, movie24, movie25, movie26, movie27, movie28, movie29, movie30,  ]
 
 
-temp = Movie.d_search(Movie, "Frank")
+temp = Movie.c_search(Movie, "Freeman")
 
 print_list(temp)
