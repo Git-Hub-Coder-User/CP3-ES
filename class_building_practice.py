@@ -158,30 +158,48 @@ for i in range(1): #To help make the code collapsable This loop creates all the 
 
     movie29 = Movie("The Truman Show", 1998, "Peter Weir", "PG", "Drama", ["Jim Carrey", "Laura Linney", "Noah Emmerich"])
 
-    movie30 = Movie("If You're Reading This", 2000, "Autumn Merlin", "G", "Drama", ["Jessica Smith", "Lyra O'Brien", "Maya Doyle"])
+    movie30 = Movie("If You're Reading This", 2000, "Autumn Merlin", "G", "Thriller", ["Jessica Smith", "Lyra O'Brien", "Maya Doyle"])
 
 listed = [movie1, movie2, movie3, movie4, movie5, movie6, movie7, movie8, movie9, movie10, movie11, movie12, movie13, movie14, movie15, movie16, movie17, movie18, movie19, movie20, movie21, movie22, movie23, movie24, movie25, movie26, movie27, movie28, movie29, movie30,  ]
 
 while True:
-    inputed = input("Would you like to \n\tA) See a printed list of all the movies in the data, \n\tB) See all movies in alphabetical order, \n\tC) See all movies in chronological order of release date \n\tD) Search by genre \n\tE) Search by director \n\tF) Search by cast? \n\tG) Exit the program?  \n").strip().lower()
+    inputed = input("\n\nWould you like to: \n\tA) See a printed list of all the movies in the data, \n\tB) See all movies in alphabetical order, \n\tC) See all movies in chronological order of release date \n\tD) Search by genre \n\tE) Search by director \n\tF) Search by cast? \n\tG) Exit the program?  \n\t").strip().lower()
 
     if inputed == "a":
-        print_list(listed)
+        print_list(listed) #If there's time, make it so all the if/elifs print at the end
     elif inputed == "b":
         while True: 
-            inputed = input("\nWould you like the list to be ascending or descending? \n")
+            inputed = input("\nWould you like the list to be ascending or descending? \n").strip().lower()
             if "asc" in inputed:
-                temp = temp.alphabetical(Movie, False)
+                temp = Movie.alphabetical(Movie, False)
             elif "desc" in inputed:
-                temp = temp.alphabetical(Movie, True)
+                temp = Movie.alphabetical(Movie, True)
             else:
                 print("Invalid option. ")
                 continue
             print_list(temp)
+            break
     elif inputed == "c":
-        pass
+        while True: 
+            inputed = input("\nWould you like the list to be ascending or descending? \n")
+            if "asc" in inputed:
+                temp = Movie.chronological(Movie, False)
+            elif "desc" in inputed:
+                temp = Movie.chronological(Movie, True)
+            else:
+                print("Invalid option. ")
+                continue
+            print_list(temp)
+            break
     elif inputed == "d":
-        pass
+        while True:
+            inputed = input("\nEnter a genre: \n").strip().lower().capitalize()
+            if not inputed in ["Drama", "Crime", "Sci-Fi", "Action", "Thriller", "Romance", "Fantasy", "War", "Adventure", "Animation", "Mystery", "Biography", "Horror", "Comedy", ]:
+                print("Invalid option. ")
+            else:
+                break
+        temp = Movie.genre(Movie, inputed)    
+        print_list(temp)          
     elif inputed == "e":
         pass
     elif inputed == "f":
@@ -190,3 +208,5 @@ while True:
         break
     else:
         print("\nInvalid input. \n")
+
+print("\nThank you! Goodbye! ")
