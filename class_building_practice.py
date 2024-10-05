@@ -201,7 +201,10 @@ while True:
         temp = Movie.genre(Movie, inputed)    
         print_list(temp)          
     elif inputed == "e":
-        pass
+        inputed = input("\nEnter a director: \n").strip().lower().capitalize()
+        temp = Movie.d_search(Movie, inputed)
+        print_list(temp)
+
     elif inputed == "f":
         pass
     elif inputed == "g":
