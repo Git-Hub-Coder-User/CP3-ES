@@ -206,7 +206,9 @@ while True:
         print_list(temp)
 
     elif inputed == "f":
-        pass
+        inputed = input("\nEnter an actor: \n").strip().lower().capitalize()
+        temp = Movie.c_search(Movie, inputed)
+        print_list(temp)
     elif inputed == "g":
         break
     else:
