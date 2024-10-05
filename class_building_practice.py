@@ -166,7 +166,7 @@ while True:
     inputed = input("\n\nWould you like to: \n\tA) See a printed list of all the movies in the data, \n\tB) See all movies in alphabetical order, \n\tC) See all movies in chronological order of release date \n\tD) Search by genre \n\tE) Search by director \n\tF) Search by cast? \n\tG) Exit the program?  \n\t").strip().lower()
 
     if inputed == "a":
-        print_list(listed) #If there's time, make it so all the if/elifs print at the end
+        print_list(listed) #If there's time, make it so all the if/elifs print at the end: I could've done this, but it's just a practice so efficiency is less important than readability so I'm not going to
     elif inputed == "b":
         while True: 
             inputed = input("\nWould you like the list to be ascending or descending? \n").strip().lower()
