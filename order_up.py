@@ -27,14 +27,14 @@ To-do:
     Create function/method to check to see if ordered item is in menu - Done! 
     Method for making sure order is not empty - Done! 
     Method to change items - Done! 
-    Method to calculate total
+    Method to calculate total - Done! Tax? 
     Decision structure that autofills none if the user doesn't want anything in the category - Not used
     World building
 """
 
 class Order:
 
-    menu = {"water": 1.50, "soda": 5.00, "juice": 3.00, "fries": 4.00, "watermelon": 3.00, "stringbeans": 2.00, "salad": 6.00, "burger": 5.00, "soup": 6.00, "chicken nuggets": 3.00, "slurpables": 3.50, "rice": 1.00, "cake": 6.00, "cookie": 2.00, "pie": 4.00}
+    menu = {"water": 1.49, "soda": 5.99, "juice": 3.99, "fries": 4.99, "watermelon": 3.99, "stringbeans": 2.99, "salad": 6.99, "burger": 5.99, "soup": 6.99, "chicken nuggets": 3.99, "slurpables": 3.49, "rice": 1.99, "cake": 6.99, "cookie": 2.99, "pie": 4.99}
 
     def __init__(self = None, drink = None, appetizer = None, main = None, side1 = None, side2 = None, dessert = None):
         self.drink = drink
@@ -99,7 +99,11 @@ class Order:
             break
     
     def total(self):
-        pass
+        total = 0
+        for item in self.create_list():
+            total += self.menu[item]
+        return total
+
     @staticmethod
     def in_menu(item):
         if not item.strip().lower() in Order.menu:
@@ -111,3 +115,4 @@ class Order:
 order = Order("water", "fries")
 print(order)
 print(order.create_list())
+print(order.total())
