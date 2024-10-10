@@ -194,11 +194,12 @@ def get_order(order):
             print("Your order is empty. Please try again, \n")
         else: 
             print(order)
-            print(f"Your total is {order.total():.2f}")
-            break
+            print(f"Your total is {order.total():.2f}\n")
+            return order
 
         
 order = Order()
+inputed = ""
 
 while True:
     order = get_order(order)
@@ -208,19 +209,25 @@ while True:
         if "y" in inputed:
             break
         elif "n" in inputed or "Try again" == inputed:
-            inputed = print("What part is incorrect? ")
+            inputed = input("What part is incorrect? \n")
             if "drink" in inputed:
                 order.change_item("drink")
+                break
             elif "appetizer" in inputed:
                 order.change_item("appetizer")
+                break
             elif "main" in inputed:
                 order.change_item("main")
+                break
             elif "side" in inputed and "1" in inputed or "first" in inputed:
                 order.change_item("side1")
-            elif "side" in inputed and "2" in inputed or "first" in inputed:
+                break
+            elif "side" in inputed and "2" in inputed or "second" in inputed:
                 order.change_item("side2")
+                break
             elif "dessert" in inputed:
                 order.change_item("dessert")
+                break
             else:
                 print("Invalid option. ")
                 inputed = "Try again"
