@@ -31,12 +31,12 @@ To-do:
     Decision structure that autofills none if the user doesn't want anything in the category - Not used (The second half) - Done! 
     Bonus: 
         World building
-        Create default orders
+        Create default orders - Done! 
 """
 
 class Order:
 
-    menu = {"water": 1.49, "soda": 5.99, "juice": 3.99, "fries": 4.99, "watermelon": 3.99, "stringbeans": 2.99, "salad": 6.99, "burger": 5.99, "soup": 6.99, "chicken nuggets": 3.99, "slurpables": 3.49, "rice": 1.99, "cake": 6.99, "cookie": 2.99, "pie": 4.99}
+    menu = {"water": 1.49, "soda": 5.99, "juice": 3.99, "fries": 4.99, "watermelon": 3.99, "stringbeans": 2.99, "salad": 6.99, "burger": 5.99, "soup": 6.99, "chicken nuggets": 3.99, "slurpables": 3.49, "rice": 1.99, "cake": 6.99, "cookies": 2.99, "pie": 4.99}
 
     def __init__(self = None, drink = None, appetizer = None, main = None, side1 = None, side2 = None, dessert = None):
         self.drink = drink
@@ -119,8 +119,8 @@ class Order:
     @classmethod
     def special(self):
         order = Order("soda", "watermelon", "burger", "fries", "slurpables", None)
-        inputed = input("For the dessert, you need to choose a dessert! ")
-        order.change_item(inputed)
+        print("For the dessert, you need to choose a dessert! ")
+        order.change_item("dessert")
         return order
         
 
@@ -196,4 +196,5 @@ while True:
         print("Your order is empty. Please try again, \n")
     else: 
         print(order)
+        print(f"Your total is {order.total():.2f}")
         break
