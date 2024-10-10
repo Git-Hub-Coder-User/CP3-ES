@@ -28,7 +28,7 @@ To-do:
     Method for making sure order is not empty - Done! 
     Method to change items - Done! 
     Method to calculate total
-    Decision structure that autofills none if the user doesn't want anything in the category
+    Decision structure that autofills none if the user doesn't want anything in the category - Not used
     World building
 """
 
@@ -62,6 +62,12 @@ class Order:
         string = string[:-2]
         return(string)
     
+    def create_list(self):
+        listed = [self.drink, self.appetizer, self.main, self.side1, self.side2, self.dessert]
+        while None in listed:
+            listed.remove(None)
+        return listed
+
     def is_empty(self):
         if str(self).count(None) == 6:
             return True
@@ -91,7 +97,9 @@ class Order:
                 item = input("Please select another category. ")
                 continue
             break
-
+    
+    def total(self):
+        pass
     @staticmethod
     def in_menu(item):
         if not item.strip().lower() in Order.menu:
@@ -102,6 +110,4 @@ class Order:
 
 order = Order("water", "fries")
 print(order)
-print(Order.in_menu("watermelon"))
-order.change_item("fappetizer")
-print(order)
+print(order.create_list())
