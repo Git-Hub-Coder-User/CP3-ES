@@ -28,7 +28,7 @@ To-do:
     Method for making sure order is not empty - Done! 
     Method to change items - Done! 
     Method to calculate total - Done! Tax? 
-    Decision structure that autofills none if the user doesn't want anything in the category - Not used (The second half)
+    Decision structure that autofills none if the user doesn't want anything in the category - Not used (The second half) - Done! 
     Bonus: 
         World building
         Create default orders
@@ -112,66 +112,84 @@ class Order:
             return False
         else:
             return True
+    
+    @classmethod
+    def classic(self):
+        return Order("soda", "watermelon", "burger", "fries", None, "cookies")
+    @classmethod
+    def special(self):
+        order = Order("soda", "watermelon", "burger", "fries", "slurpables", None)
+        inputed = input("For the dessert, you need to choose a dessert! ")
+        order.change_item(inputed)
+        return order
         
 
-#decision structure - keep in mind the sides stuff
 order = Order()
 
 while True:
-    while True: 
-        inputed = input("Would you like a drink? ").strip().lower()
-        if "y" in inputed: 
-            order.change_item("drink")
-            break
-        elif "n" in inputed:
-            break
-        else:
-            print("Invalid option")
-    while True: 
-        inputed = input("Would you like an appetizer? ").strip().lower()
-        if "y" in inputed: 
-            order.change_item("appetizer")
-            break
-        elif "n" in inputed:
-            break
-        else:
-            print("Invalid option")
-    while True: 
-        inputed = input("Would you like a main dish? ").strip().lower()
-        if "y" in inputed: 
-            order.change_item("main")
-            break
-        elif "n" in inputed:
-            break
-        else:
-            print("Invalid option")
-    while True: 
-        inputed = input("Would you like a side? ").strip().lower()
-        if "y" in inputed: 
-            order.change_item("side1")
-            while True:
-                inputed = input("Would you like a second side? ").strip().lower()
-                if "y" in inputed:
-                    order.change_item("side2")
-                elif "n" in inputed:
-                    break
-                else:
-                    print("Invalid option. ")
+
+    inputed = input("Would you like the classic or the special? \n")
+
+    if "cl" in inputed:
+        order = Order.classic()
+    elif "sp" in inputed:
+        order = Order.special()
+    else: 
+        while True: 
+            inputed = input("Would you like a drink? ").strip().lower()
+            if "y" in inputed: 
+                order.change_item("drink")
                 break
-        elif "n" in inputed:
+            elif "n" in inputed:
+                break
+            else:
+                print("Invalid option")
+        while True: 
+            inputed = input("Would you like an appetizer? ").strip().lower()
+            if "y" in inputed: 
+                order.change_item("appetizer")
+                break
+            elif "n" in inputed:
+                break
+            else:
+                print("Invalid option")
+        while True: 
+            inputed = input("Would you like a main dish? ").strip().lower()
+            if "y" in inputed: 
+                order.change_item("main")
+                break
+            elif "n" in inputed:
+                break
+            else:
+                print("Invalid option")
+        while True: 
+            inputed = input("Would you like a side? ").strip().lower()
+            if "y" in inputed: 
+                order.change_item("side1")
+                while True:
+                    inputed = input("Would you like a second side? ").strip().lower()
+                    if "y" in inputed:
+                        order.change_item("side2")
+                    elif "n" in inputed:
+                        break
+                    else:
+                        print("Invalid option. ")
+                    break
+            elif "n" in inputed:
+                break
+            else:
+                print("Invalid option")
             break
-        else:
-            print("Invalid option")
-        break
-    while True: 
-        inputed = input("Would you like a dessert? ").strip().lower()
-        if "y" in inputed: 
-            order.change_item("dessert")
-            break
-        elif "n" in inputed:
-            break
-        else:
-            print("Invalid option")
+        while True: 
+            inputed = input("Would you like a dessert? ").strip().lower()
+            if "y" in inputed: 
+                order.change_item("dessert")
+                break
+            elif "n" in inputed:
+                break
+            else:
+                print("Invalid option")
+
     break
 
 print(order)
