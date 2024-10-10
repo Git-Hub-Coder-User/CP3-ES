@@ -25,8 +25,8 @@ To-do:
     Create class for the order with default None (print statement will need to skip the Nones) - No, decision structure does the default none - or maybe not so I can just use  
         the change method - Done! 
     Create function/method to check to see if ordered item is in menu - Done! 
-    Method for making sure order is not empty
-    Method to change items 
+    Method for making sure order is not empty - Done! 
+    Method to change items - Done! 
     Method to calculate total
     Decision structure that autofills none if the user doesn't want anything in the category
     World building
@@ -34,7 +34,7 @@ To-do:
 
 class Order:
 
-    menu = {"water": 1.50, "soda": 5.00, "juice": 3.00, "fries": 4.00, "chips and salsa": 3.00, "stringbeans": 2.00, "salad": 6.00, "burger": 5.00, "soup": 6.00, "chicken nuggets": 3.00, "slurpables": 3.50, "rice": 1.00, "cake": 6.00, "cookie": 2.00, "pie": 4.00}
+    menu = {"water": 1.50, "soda": 5.00, "juice": 3.00, "fries": 4.00, "watermelon": 3.00, "stringbeans": 2.00, "salad": 6.00, "burger": 5.00, "soup": 6.00, "chicken nuggets": 3.00, "slurpables": 3.50, "rice": 1.00, "cake": 6.00, "cookie": 2.00, "pie": 4.00}
 
     def __init__(self = None, drink = None, appetizer = None, main = None, side1 = None, side2 = None, dessert = None):
         self.drink = drink
@@ -67,6 +67,30 @@ class Order:
             return True
         else:
             return False
+    
+    def change_item(self, item):
+        replacement = input("What would you like instead? ").strip().lower()
+        while not self.in_menu(replacement):
+            print(f"I'm sorry. {replacement.capitalize()} is not in the menu. ")
+            replacement = input("What would you like instead? ")
+        while True: 
+            if item == "drink":
+                self.drink = replacement
+            elif item == "appetizer":
+                self.appetizer = replacement
+            elif item == "main":
+                self.main = replacement
+            elif item == "side1":
+                self.side1 = replacement
+            elif item == "side2":
+                self.side2 = replacement
+            elif item == "dessert":
+                self.dessert = replacement
+            else:
+                print(f"I'm sorry, {item} is not a category. ")
+                item = input("Please select another category. ")
+                continue
+            break
 
     @staticmethod
     def in_menu(item):
@@ -79,3 +103,5 @@ class Order:
 order = Order("water", "fries")
 print(order)
 print(Order.in_menu("watermelon"))
+order.change_item("fappetizer")
+print(order)
