@@ -32,6 +32,9 @@ To-do:
 """
 
 class Order:
+
+    menu = {"water": 1.50, "soda": 5.00, "juice": 3.00, "fries": 4.00, "chips and salsa": 3.00}
+
     def __init__(self = None, drink = None, appetizer = None, main = None, side1 = None, side2 = None, dessert = None):
         self.drink = drink
         self.appetizer = appetizer
@@ -43,20 +46,24 @@ class Order:
     def __str__(self):
         string = "Your order is: "
         if self.drink != None:
-            string += f"{self.drink}, "
+            string += f"{self.drink.capitalize()}, "
         if self.appetizer != None:
-            string += f"{self.appetizer}, "
+            string += f"{self.appetizer.capitalize()}, "
         if self.main != None:
-            string += f"{self.main}, "
+            string += f"{self.main.capitalize()}, "
         if self.side1 != None:
-            string += f"{self.side1}, "
+            string += f"{self.side1.capitalize()}, "
         if self.side2 != None:
-            string += f"{self.side2}, "
+            string += f"{self.side2.capitalize()}, "
         if self.dessert != None:
-            string += f"{self.dessert}, "
+            string += f"{self.dessert.capitalize()}, "
         
         string = string[:-2]
         return(string)
+    
+    @classmethod
+    def in_menu(self):
+        pass
 
-order = Order("Water", "fries")
+order = Order("water", "fries")
 print(order)
