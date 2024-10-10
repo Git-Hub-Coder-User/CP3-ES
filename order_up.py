@@ -28,8 +28,10 @@ To-do:
     Method for making sure order is not empty - Done! 
     Method to change items - Done! 
     Method to calculate total - Done! Tax? 
-    Decision structure that autofills none if the user doesn't want anything in the category - Not used
-    World building
+    Decision structure that autofills none if the user doesn't want anything in the category - Not used (The second half)
+    Bonus: 
+        World building
+        Create default orders
 """
 
 class Order:
@@ -75,7 +77,7 @@ class Order:
             return False
     
     def change_item(self, item):
-        replacement = input("What would you like instead? ").strip().lower()
+        replacement = input("What would you like? ").strip().lower()
         while not self.in_menu(replacement):
             print(f"I'm sorry. {replacement.capitalize()} is not in the menu. ")
             replacement = input("What would you like instead? ")
@@ -112,7 +114,64 @@ class Order:
             return True
         
 
-order = Order("water", "fries")
+#decision structure - keep in mind the sides stuff
+order = Order()
+
+while True:
+    while True: 
+        inputed = input("Would you like a drink? ").strip().lower()
+        if "y" in inputed: 
+            order.change_item("drink")
+            break
+        elif "n" in inputed:
+            break
+        else:
+            print("Invalid option")
+    while True: 
+        inputed = input("Would you like an appetizer? ").strip().lower()
+        if "y" in inputed: 
+            order.change_item("appetizer")
+            break
+        elif "n" in inputed:
+            break
+        else:
+            print("Invalid option")
+    while True: 
+        inputed = input("Would you like a main dish? ").strip().lower()
+        if "y" in inputed: 
+            order.change_item("main")
+            break
+        elif "n" in inputed:
+            break
+        else:
+            print("Invalid option")
+    while True: 
+        inputed = input("Would you like a side? ").strip().lower()
+        if "y" in inputed: 
+            order.change_item("side1")
+            while True:
+                inputed = input("Would you like a second side? ").strip().lower()
+                if "y" in inputed:
+                    order.change_item("side2")
+                elif "n" in inputed:
+                    break
+                else:
+                    print("Invalid option. ")
+                break
+        elif "n" in inputed:
+            break
+        else:
+            print("Invalid option")
+        break
+    while True: 
+        inputed = input("Would you like a dessert? ").strip().lower()
+        if "y" in inputed: 
+            order.change_item("dessert")
+            break
+        elif "n" in inputed:
+            break
+        else:
+            print("Invalid option")
+    break
+
 print(order)
-print(order.create_list())
-print(order.total())
