@@ -21,10 +21,10 @@ The class needs to have methods that
 """
 """
 To-do: 
-    Create menu
+    Create menu - Done! 
     Create class for the order with default None (print statement will need to skip the Nones) - No, decision structure does the default none - or maybe not so I can just use  
-        the change method
-    Create function/method to check to see if ordered item is in menu
+        the change method - Done! 
+    Create function/method to check to see if ordered item is in menu - Done! 
     Method for making sure order is not empty
     Method to change items 
     Method to calculate total
@@ -62,6 +62,12 @@ class Order:
         string = string[:-2]
         return(string)
     
+    def is_empty(self):
+        if str(self).count(None) == 6:
+            return True
+        else:
+            return False
+
     @staticmethod
     def in_menu(item):
         if not item.strip().lower() in Order.menu:
