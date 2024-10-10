@@ -71,7 +71,7 @@ class Order:
         return listed
 
     def is_empty(self):
-        if str(self).count(None) == 6:
+        if self.drink == None and self.appetizer == None and self.main == None and self.side1 == None and self.side1 == None and self.dessert == None:
             return True
         else:
             return False
@@ -128,7 +128,7 @@ order = Order()
 
 while True:
 
-    inputed = input("Would you like the classic or the special? \n")
+    inputed = input("Would you like the classic, the special, or to choose your own order? \n")
 
     if "cl" in inputed:
         order = Order.classic()
@@ -190,6 +190,10 @@ while True:
             else:
                 print("Invalid option")
 
-    break
+    # break
 
-print(order)
+    if order.is_empty():
+        print("Your order is empty. Please try again, \n")
+    else: 
+        print(order)
+        break
