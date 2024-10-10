@@ -22,8 +22,9 @@ The class needs to have methods that
 """
 To-do: 
     Create menu
-    Create class for the order with default None (print statement will need to skip the Nones) - No, decision structure does the default none - or maybe not so I can just use  the change method
-    Create function to check to see if ordered item is in menu
+    Create class for the order with default None (print statement will need to skip the Nones) - No, decision structure does the default none - or maybe not so I can just use  
+        the change method
+    Create function/method to check to see if ordered item is in menu
     Method for making sure order is not empty
     Method to change items 
     Method to calculate total
@@ -33,7 +34,7 @@ To-do:
 
 class Order:
 
-    menu = {"water": 1.50, "soda": 5.00, "juice": 3.00, "fries": 4.00, "chips and salsa": 3.00}
+    menu = {"water": 1.50, "soda": 5.00, "juice": 3.00, "fries": 4.00, "chips and salsa": 3.00, "stringbeans": 2.00, "salad": 6.00, "burger": 5.00, "soup": 6.00, "chicken nuggets": 3.00, "slurpables": 3.50, "rice": 1.00, "cake": 6.00, "cookie": 2.00, "pie": 4.00}
 
     def __init__(self = None, drink = None, appetizer = None, main = None, side1 = None, side2 = None, dessert = None):
         self.drink = drink
@@ -46,24 +47,29 @@ class Order:
     def __str__(self):
         string = "Your order is: "
         if self.drink != None:
-            string += f"{self.drink.capitalize()}, "
+            string += f"{self.drink.strip().lower().capitalize()}, "
         if self.appetizer != None:
-            string += f"{self.appetizer.capitalize()}, "
+            string += f"{self.appetizer.lower().capitalize()}, "
         if self.main != None:
-            string += f"{self.main.capitalize()}, "
+            string += f"{self.main.lower().capitalize()}, "
         if self.side1 != None:
-            string += f"{self.side1.capitalize()}, "
+            string += f"{self.side1.lower().capitalize()}, "
         if self.side2 != None:
-            string += f"{self.side2.capitalize()}, "
+            string += f"{self.side2.lower().capitalize()}, "
         if self.dessert != None:
-            string += f"{self.dessert.capitalize()}, "
+            string += f"{self.dessert.lower().capitalize()}, "
         
         string = string[:-2]
         return(string)
     
-    @classmethod
-    def in_menu(self):
-        pass
+    @staticmethod
+    def in_menu(item):
+        if not item.strip().lower() in Order.menu:
+            return False
+        else:
+            return True
+        
 
 order = Order("water", "fries")
 print(order)
+print(Order.in_menu("watermelon"))
