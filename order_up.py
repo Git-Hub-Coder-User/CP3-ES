@@ -209,7 +209,7 @@ def get_order(order):
             return order
 
 
-for i in range(1): #I'm putting this in a loop to make the code a bit more readible. This loop prints the options
+for i in range(1): #I'm putting this in a loop to make the code a bit more readable. This loop prints the options
     print("Hello, and welcome to the Dia's! We're happy to have you here! What can I get for you today? ")
     print("Our menu, while always growing, is as follows. \n\tFor drinks you can have water for 1.49, soda for 5.99, or juice for 3.99. \n\tAs an appetizer, you can have fries for 4.99, watermelon fpr 3.99, or stringbeans for 2.99. \n\tFor our main dishes we're proud to offer salad for 6.99, a burger for 5.99, and soup for 6.99. \n\tOur avaiable sides are chicken nuggets for 3.99, slurpables for 3.49, and rice for 1.49. \n\tFinally, our desserts are cake for 6.99, cookies for 2.99, and pie for 4.99. \n")
     print("We also have two starter orders just to make life easier for you. \n\tThe classic has a soda as a drink, watermelon as an appetizer, a burger as the main dish, fries as the side, and cookies for dessert. \n\tThe special has a soda as a drink, watermelon as the side, a burger as the main dish, fries as one side and slurpables as the other. Then you get to choose a dessert! \n")
