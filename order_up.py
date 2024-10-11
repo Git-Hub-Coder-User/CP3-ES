@@ -69,6 +69,8 @@ class Order:
         listed = [self.drink, self.appetizer, self.main, self.side1, self.side2, self.dessert]
         while None in listed:
             listed.remove(None)
+        for value in listed:
+            listed[listed.index(value)] = value.strip().lower()
         return listed
 
     #Checks if order is empty
@@ -150,7 +152,7 @@ def get_order(order):
                 elif "n" in inputed:
                     break
                 else:
-                    print("Invalid option. \n")
+                    print("Invalid option. ")
             while True: 
                 inputed = input("Would you like an appetizer? ").strip().lower()
                 if "y" in inputed: 
@@ -159,7 +161,7 @@ def get_order(order):
                 elif "n" in inputed:
                     break
                 else:
-                    print("Invalid option. \n")
+                    print("Invalid option. ")
             while True: 
                 inputed = input("Would you like a main dish? ").strip().lower()
                 if "y" in inputed: 
@@ -168,7 +170,7 @@ def get_order(order):
                 elif "n" in inputed:
                     break
                 else:
-                    print("Invalid option. \n")
+                    print("Invalid option. ")
             while True: 
                 inputed = input("Would you like a side? ").strip().lower()
                 if "y" in inputed: 
@@ -177,15 +179,15 @@ def get_order(order):
                         inputed = input("Would you like a second side? ").strip().lower()
                         if "y" in inputed:
                             order.change_item("side2")
+                            break
                         elif "n" in inputed:
                             break
                         else:
-                            print("Invalid option. \n")
-                        break
+                            print("Invalid option. ")
                 elif "n" in inputed:
                     break
                 else:
-                    print("Invalid option. \n")
+                    print("Invalid option. ")
                 break
             while True: 
                 inputed = input("Would you like a dessert? ").strip().lower()
@@ -195,7 +197,7 @@ def get_order(order):
                 elif "n" in inputed:
                     break
                 else:
-                    print("Invalid option. \n")
+                    print("Invalid option. ")
 
         # break
 
@@ -216,19 +218,19 @@ inputed = ""
 
 while True: 
     if inputed != "Try again. ":
-        inputed = input("Is your order correct? \n")
+        inputed = input("Is your order correct? ")
 
     if "y" in inputed:
         break
     elif "n" in inputed or "Try again" == inputed:
-        inputed = input("What part is incorrect? \n")
+        inputed = input("What part is incorrect? ")
         if "drink" in inputed:
             order.change_item("drink")
         elif "appetizer" in inputed:
             order.change_item("appetizer")
         elif "main" in inputed:
             order.change_item("main")
-        elif "side" in inputed and "1" in inputed or "first" in inputed:
+        elif "side" in inputed and "1" in inputed or "first" in inputed or "2" not in inputed or "second" not in inputed:
             order.change_item("side1")
         elif "side" in inputed and "2" in inputed or "second" in inputed:
             order.change_item("side2")
