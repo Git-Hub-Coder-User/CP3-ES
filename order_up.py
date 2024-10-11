@@ -47,7 +47,7 @@ class Order:
         self.dessert = dessert
     
     def __str__(self):
-        string = "Your order is: "
+        string = "\nYour order is: "
         if self.drink != None:
             string += f"{self.drink.strip().lower().capitalize()}, "
         if self.appetizer != None:
