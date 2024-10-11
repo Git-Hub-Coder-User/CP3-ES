@@ -64,18 +64,21 @@ class Order:
         string = string[:-2]
         return(string)
     
+    #Makes a list form of the Order so it's easier to deal with
     def create_list(self):
         listed = [self.drink, self.appetizer, self.main, self.side1, self.side2, self.dessert]
         while None in listed:
             listed.remove(None)
         return listed
 
+    #Checks if order is empty
     def is_empty(self):
         if self.drink == None and self.appetizer == None and self.main == None and self.side1 == None and self.side1 == None and self.dessert == None:
             return True
         else:
             return False
     
+    #Lets user change item, also used to create the order
     def change_item(self, item):
         replacement = input("What would you like? ").strip().lower()
         while not self.in_menu(replacement):
@@ -100,6 +103,7 @@ class Order:
                 continue
             break
     
+    #Gets total
     def total(self):
         total = 0
         for item in self.create_list():
@@ -107,12 +111,14 @@ class Order:
         return total
 
     @staticmethod
+    #Checks if item is menu
     def in_menu(item):
         if not item.strip().lower() in Order.menu:
             return False
         else:
             return True
     
+    #Starter orders
     @classmethod
     def classic(self):
         return Order("soda", "watermelon", "burger", "fries", None, "cookies")
