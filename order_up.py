@@ -209,7 +209,7 @@ def get_order(order):
             return order
 
 
-print("Hello, and welcome to the restaraunt! What can I get for you? \n")
+print("Hello, and welcome to the Dia's! We're happy to have you here! What can I get for you today? \n")
 
 order = Order()
 order = get_order(order)
@@ -244,4 +244,4 @@ while True:
     
     print(order)
 
-print("\nThank you for coming! See you again soon! \n")
+print("\nThank you for coming! We hope that you'll enjoy your food and we'll see you again soon! \n")
