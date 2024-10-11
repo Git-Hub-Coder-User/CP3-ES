@@ -27,10 +27,10 @@ To-do:
     Create function/method to check to see if ordered item is in menu - Done! 
     Method for making sure order is not empty - Done! 
     Method to change items - Done! 
-    Method to calculate total - Done! Tax? 
+    Method to calculate total - Done! Tax? - Added! 
     Decision structure that autofills none if the user doesn't want anything in the category - Not used (The second half) - Done! 
     Bonus: 
-        World building
+        World building - Good enough
         Create default orders - Done! 
 """
 
@@ -119,7 +119,7 @@ class Order:
     @classmethod
     def special(self):
         order = Order("soda", "watermelon", "burger", "fries", "slurpables", None)
-        print("For the dessert, you need to choose a dessert! ")
+        print("For the special, you need to choose a dessert! ")
         order.change_item("dessert")
         return order
         
@@ -144,7 +144,7 @@ def get_order(order):
                 elif "n" in inputed:
                     break
                 else:
-                    print("Invalid option")
+                    print("Invalid option. \n")
             while True: 
                 inputed = input("Would you like an appetizer? ").strip().lower()
                 if "y" in inputed: 
@@ -153,7 +153,7 @@ def get_order(order):
                 elif "n" in inputed:
                     break
                 else:
-                    print("Invalid option")
+                    print("Invalid option. \n")
             while True: 
                 inputed = input("Would you like a main dish? ").strip().lower()
                 if "y" in inputed: 
@@ -162,7 +162,7 @@ def get_order(order):
                 elif "n" in inputed:
                     break
                 else:
-                    print("Invalid option")
+                    print("Invalid option. \n")
             while True: 
                 inputed = input("Would you like a side? ").strip().lower()
                 if "y" in inputed: 
@@ -174,12 +174,12 @@ def get_order(order):
                         elif "n" in inputed:
                             break
                         else:
-                            print("Invalid option. ")
+                            print("Invalid option. \n")
                         break
                 elif "n" in inputed:
                     break
                 else:
-                    print("Invalid option")
+                    print("Invalid option. \n")
                 break
             while True: 
                 inputed = input("Would you like a dessert? ").strip().lower()
@@ -189,7 +189,7 @@ def get_order(order):
                 elif "n" in inputed:
                     break
                 else:
-                    print("Invalid option")
+                    print("Invalid option. \n")
 
         # break
 
@@ -197,13 +197,16 @@ def get_order(order):
             print("Your order is empty. Please try again, \n")
         else: 
             print(order)
-            print(f"Your total is {order.total():.2f}\n")
+            print(f"Your pre-tax total is {order.total():.2f}. Tax is {(order.total() * .02):.2f}. Your total is {(order.total() * 1.02):.2f}\n")
             return order
 
-        
+
+print("Hello, and welcome to the restaraunt! What can I get for you? \n")
+
 order = Order()
 order = get_order(order)
 inputed = ""
+
 
 while True: 
     if inputed != "Try again. ":
@@ -226,9 +229,11 @@ while True:
         elif "dessert" in inputed:
             order.change_item("dessert")
         else:
-            print("Invalid option. ")
+            print("Invalid option. \n")
             inputed = "Try again"
     else: 
-        print("Invalid option. ")
+        print("Invalid option. \n")
     
     print(order)
+
+print("\nThank you for coming! See you again soon! \n")
