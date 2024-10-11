@@ -124,6 +124,9 @@ class Order:
         return order
         
 def get_order(order):
+
+    order = order
+
     while True:
 
         inputed = input("Would you like the classic, the special, or to choose your own order? \n")
@@ -199,37 +202,33 @@ def get_order(order):
 
         
 order = Order()
+order = get_order(order)
 inputed = ""
 
-while True:
-    order = get_order(order)
-    if inputed != "Try again":
-        inputed = input("Is your order correct? ")
-    while True: 
-        if "y" in inputed:
-            break
-        elif "n" in inputed or "Try again" == inputed:
-            inputed = input("What part is incorrect? \n")
-            if "drink" in inputed:
-                order.change_item("drink")
-                break
-            elif "appetizer" in inputed:
-                order.change_item("appetizer")
-                break
-            elif "main" in inputed:
-                order.change_item("main")
-                break
-            elif "side" in inputed and "1" in inputed or "first" in inputed:
-                order.change_item("side1")
-                break
-            elif "side" in inputed and "2" in inputed or "second" in inputed:
-                order.change_item("side2")
-                break
-            elif "dessert" in inputed:
-                order.change_item("dessert")
-                break
-            else:
-                print("Invalid option. ")
-                inputed = "Try again"
-        else: 
+while True: 
+    if inputed != "Try again. ":
+        inputed = input("Is your order correct? \n")
+
+    if "y" in inputed:
+        break
+    elif "n" in inputed or "Try again" == inputed:
+        inputed = input("What part is incorrect? \n")
+        if "drink" in inputed:
+            order.change_item("drink")
+        elif "appetizer" in inputed:
+            order.change_item("appetizer")
+        elif "main" in inputed:
+            order.change_item("main")
+        elif "side" in inputed and "1" in inputed or "first" in inputed:
+            order.change_item("side1")
+        elif "side" in inputed and "2" in inputed or "second" in inputed:
+            order.change_item("side2")
+        elif "dessert" in inputed:
+            order.change_item("dessert")
+        else:
             print("Invalid option. ")
+            inputed = "Try again"
+    else: 
+        print("Invalid option. ")
+    
+    print(order)
