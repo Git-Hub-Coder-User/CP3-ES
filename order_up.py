@@ -37,6 +37,11 @@ To-do:
 class Order:
 
     menu = {"water": 1.49, "soda": 5.99, "juice": 3.99, "fries": 4.99, "watermelon": 3.99, "stringbeans": 2.99, "salad": 6.99, "burger": 5.99, "soup": 6.99, "chicken nuggets": 3.99, "slurpables": 3.49, "rice": 1.99, "cake": 6.99, "cookies": 2.99, "pie": 4.99}
+    drink_menu = ["water", "soda", "juice"]
+    appetizer_menu = ["fries", "watermelon", "stringbeans"]
+    main_menu = ["salad", "burger", "soup"]
+    side_menu = ["chicken nuggets", "slurpables", "rice"]
+    dessert_menu = ["cake", "cookies", "pie"]
 
     def __init__(self = None, drink = None, appetizer = None, main = None, side1 = None, side2 = None, dessert = None):
         self.drink = drink
@@ -83,8 +88,9 @@ class Order:
     #Lets user change item, also used to create the order
     def change_item(self, item):
         replacement = input("What would you like? ").strip().lower()
-        while not self.in_menu(replacement):
-            print(f"I'm sorry. {replacement.capitalize()} is not in the menu. ")
+        print(item)
+        while not self.in_menu(replacement, item):
+            print(f"I'm sorry. {replacement.capitalize()} is not in that menu. ")
             replacement = input("What would you like instead? ")
         while True: 
             if item == "drink":
@@ -114,11 +120,29 @@ class Order:
 
     @staticmethod
     #Checks if item is menu
-    def in_menu(item):
+    def in_menu(item, group):
+        print("In menu called")
         if not item.strip().lower() in Order.menu:
+            print("THIS LINE RAN")
             return False
-        else:
-            return True
+        elif group == "drink":
+            if item not in Order.drink_menu:
+                print("I ran! ")
+                return False
+        elif group == "appetizer":
+            if item not in Order.appetizer_menu:
+                return False
+        elif group == "main":
+            if item not in Order.main_menu:
+                return False
+        elif group == "side":
+            if item not in Order.side_menu:
+                return False
+        elif group == "dessert":
+            if item not in Order.dessert_menu:
+                return False
+        print("I ran")
+        return True
     
     #Starter orders
     @classmethod
