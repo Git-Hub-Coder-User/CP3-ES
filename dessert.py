@@ -2,7 +2,7 @@
 'A Dessert Shop sells candy by the pound, cookies by the dozen, ice cream by the scoop, and sundaes (ice cream with a topping).
 For this part of the project, you will create the structure for a Dessert Shop program. There will be no user interface nor input/output at this time, but there will be later. Your code will be tested using automated test cases.
 Test code can be simple asserts, unittest code, pytest code, or doctests as long as your set of test cases meets the requirements specified for the project. Whichever you choose, be consistent. unittest is built-in with Python, as are doctests and asserts. pytest is a 3rd-party module but is simpler to write code for than unittest, and it will run unittest code. Whichever you choose, be consistent.
-To create this framework, you will implement an inheritance hierarchy of classes derived from a DessertItem superclass. Candy, Cookie, and IceCream classes will derive from the DessertItem class. The Sundae class will derive from the IceCream class. The classes will be structured as below.'
+To create this framework, you will implement an inheritance hierarchy of classes derived from a DessertItem superclass. Candy, Cookie, and IceCream classes will derive from the DessertItem class. The Sundae class will derive from the IceCream class. The classes will be structured as below.' - Instructions
 
 """
 
