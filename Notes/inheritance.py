@@ -6,6 +6,7 @@
 #Are fish birds - Eli
 #Get the birds - LaRose
 #We want to keep it simple, stupid = LaRose
+#I can't read anymore - LaRose
 
 class PetStore():
     name = "PetStore"
@@ -15,6 +16,8 @@ class PetStore():
         self.featured_pet = None
     
     def add_pet(self, animal):
+        #Assert checks if a statement is true; if the statement is false, it causes an error
+        #Is instance checks if the first parameter is an instance of the second
         assert isinstance(animal, Animal)
         self.animals.append(animal)
     
@@ -72,6 +75,9 @@ class Mammal(Animal):
     pass
 
 class Cat(Mammal):
+    def __init__(self, name, diet):
+        super().__init__(name)
+        self.diet = diet
     diet = "mice"
 
 class Dog(Mammal):
@@ -130,3 +136,4 @@ store.feature("Catalina")
 print("Fish: ")
 for pet in store.get_fish():
     print(pet)
+
