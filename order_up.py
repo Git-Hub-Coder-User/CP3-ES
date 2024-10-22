@@ -88,7 +88,7 @@ class Order:
     #Lets user change item, also used to create the order
     def change_item(self, item):
         replacement = input("What would you like? ").strip().lower()
-        print(item)
+        print(item) ###
         while not self.in_menu(replacement, item):
             print(f"I'm sorry. {replacement.capitalize()} is not in that menu. ")
             replacement = input("What would you like instead? ")
@@ -121,9 +121,9 @@ class Order:
     @staticmethod
     #Checks if item is menu
     def in_menu(item, group):
-        print("In menu called")
+        # print("In menu called")
         if not item.strip().lower() in Order.menu:
-            print("THIS LINE RAN")
+            # print("THIS LINE RAN")
             return False
         elif group == "drink":
             if item not in Order.drink_menu:
@@ -141,7 +141,7 @@ class Order:
         elif group == "dessert":
             if item not in Order.dessert_menu:
                 return False
-        print("I ran")
+        # print("I ran")
         return True
     
     #Starter orders
@@ -265,11 +265,14 @@ while True:
             order.change_item("appetizer")
         elif "main" in inputed:
             order.change_item("main")
-        elif "side" in inputed and "1" in inputed or "first" in inputed or "2" not in inputed or "second" not in inputed:
+        elif ("side" in inputed) and ("1" in inputed or "first" in inputed or "2" not in inputed or "second" not in inputed):
+            # print("This part ran for some reason")
+            # print("side" in inputed)
             order.change_item("side1")
         elif "side" in inputed and "2" in inputed or "second" in inputed:
             order.change_item("side2")
         elif "dessert" in inputed:
+            # print("I RAN")
             order.change_item("dessert")
         else:
             print("Invalid option. \n")
