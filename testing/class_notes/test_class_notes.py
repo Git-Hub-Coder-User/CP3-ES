@@ -1,4 +1,4 @@
-from class_notes import Animal
+from testing.class_notes.class_notes import Animal
 
 def test_get_name():
     testanimal = Animal("PikaPika", "Bobcat", 3, "Female", "Epic")
