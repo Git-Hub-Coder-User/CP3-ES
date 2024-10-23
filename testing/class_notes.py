@@ -17,6 +17,9 @@ class Animal:
     def __str__(self):
         return f"Name: {self.name} \nAge: {self.age} \nSpecies: {self.species} \nGender: {self.gender} \nRarity: {self.rarity} "
     
+    def get_name(self):
+        return self.name
+
     #Methods are functions inside of the class
     def fight(self, other):
         if len(self.name) > len(other.name):
