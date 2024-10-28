@@ -22,7 +22,6 @@ class Order():
     
     def add(self, DessertItem):
         self.order.append(DessertItem)
-        return self.order
 
 def main():
     order = Order()
