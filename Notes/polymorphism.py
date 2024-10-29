@@ -5,7 +5,9 @@
 #"How old do you think shape is? " - LaRose
 #"This is to protect your code from stupid people. " - LaRose
 #"Find your calm, children. " - LaRose
-#
+##"There's a very cool scientific explnation that I don't have memorized because I don't science. " - LaRose
+#"What the [hoki], No. " - LaRose
+
 
 import math
 from abc import ABC, abstractmethod

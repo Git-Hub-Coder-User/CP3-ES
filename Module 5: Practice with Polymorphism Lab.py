@@ -1,6 +1,3 @@
-#"There's a very cool scientific explnation that I don't have memorized because I don't science. " - LaRose
-#"What the [hoki], No. " - LaRose
-
 class Contacts:
   def __init__(self):
     self.view = 'quit'
