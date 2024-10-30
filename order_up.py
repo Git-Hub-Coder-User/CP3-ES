@@ -169,7 +169,7 @@ def get_order(order):
             order = Order.special()
         else: 
             while True: 
-                inputed = input("Would you like a drink? ").strip().lower()
+                inputed = input("Would you like a drink? (y/n)").strip().lower()
                 if "y" in inputed: 
                     order.change_item("drink")
                     break
@@ -178,7 +178,7 @@ def get_order(order):
                 else:
                     print("Invalid option. ")
             while True: 
-                inputed = input("Would you like an appetizer? ").strip().lower()
+                inputed = input("Would you like an appetizer? (y/n)").strip().lower()
                 if "y" in inputed: 
                     order.change_item("appetizer")
                     break
@@ -187,7 +187,7 @@ def get_order(order):
                 else:
                     print("Invalid option. ")
             while True: 
-                inputed = input("Would you like a main dish? ").strip().lower()
+                inputed = input("Would you like a main dish? (y/n)").strip().lower()
                 if "y" in inputed: 
                     order.change_item("main")
                     break
@@ -196,11 +196,11 @@ def get_order(order):
                 else:
                     print("Invalid option. ")
             while True: 
-                inputed = input("Would you like a side? ").strip().lower()
+                inputed = input("Would you like a side? (y/n)").strip().lower()
                 if "y" in inputed: 
                     order.change_item("side1")
                     while True:
-                        inputed = input("Would you like a second side? ").strip().lower()
+                        inputed = input("Would you like a second side? (y/n)").strip().lower()
                         if "y" in inputed:
                             order.change_item("side2")
                             break
@@ -214,7 +214,7 @@ def get_order(order):
                     print("Invalid option. ")
                 break
             while True: 
-                inputed = input("Would you like a dessert? ").strip().lower()
+                inputed = input("Would you like a dessert? (y/n)").strip().lower()
                 if "y" in inputed: 
                     order.change_item("dessert")
                     break
